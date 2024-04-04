@@ -9,7 +9,7 @@ input{
     padding: 5px;
 }
 .tela{
-    background-color: rgb(109, 109, 201);
+    background-color: var(--laranjaClaro);
     margin: auto;
     max-width: 70%;
     height: 93vh;
@@ -29,9 +29,7 @@ input{
 }
 .informacoes{
     padding-top: 8%;
-    background-color: rgb(109, 201, 176);
 }
 .nome{
     font-size:larger;
-    background-color: rgb(109, 201, 176);
 }

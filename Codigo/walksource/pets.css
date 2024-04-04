@@ -9,7 +9,7 @@ input{
     padding: 5px;
 }
 .tela{
-    background-color: rgb(109, 109, 201);
+    background-color: var(--laranjaClaro);
     margin: auto;
     max-width: 70%;
     height: 93vh;
@@ -26,13 +26,12 @@ input{
     justify-content: space-between;
 }
 .lista{
-    background-color: rgb(109, 201, 176);
     display: block;
     margin:auto;
     padding-top: 2%;
 }
 .itemLista{
-    background-color: rgb(109, 201, 130);
+    background-color: var(--azul);
     border:1px solid black;
     border-radius: 10px;
     width: 98%;
@@ -40,9 +39,15 @@ input{
     margin-bottom: 1%;
 }
 .titulo{
-    background-color: rgb(201, 196, 109);
     display: flex;
     justify-content: space-between;
-    padding-left: 5%;
+    padding-top: 2%;
+    padding-left: 2%;
     padding-right: 5%;
+}
+.botaoAdd{
+    background-color: var(--verde);
+    padding: 7px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 7px 1px var(--cinzaClaro);
 }
