@@ -62,3 +62,12 @@ input {
 .botaoAdd:active {
     transform: translateY(2px);
 }
+
+.botaoSave {
+    background-color: var(--azul);
+    padding: 7px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 7px 1px var(--cinzaClaro);
+    width: 40%;
+    margin: auto;
+}
