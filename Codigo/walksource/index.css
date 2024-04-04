@@ -1,0 +1,32 @@
+h1{
+    text-align: center;
+}
+.login{
+    background-color: rgb(109, 109, 201);
+    margin: auto;
+    max-width: 70%;
+    margin-top: 5%;
+    height: 70vh;
+}
+.dados{
+    width: 45%;
+    background-color: rgb(109, 201, 140);
+    height: 100%;
+    float: left;
+}
+.fotos{
+    width: 55%;
+    background-color: rgb(128, 15, 98);
+    height: 100%;
+    float: left;
+}
+.dadosinterno{
+    height: 80%;
+    width: 80%;
+    margin: auto;
+    margin-top: 10%;
+    text-align: center;
+}
+.cadastro{
+    text-align: center;
+}

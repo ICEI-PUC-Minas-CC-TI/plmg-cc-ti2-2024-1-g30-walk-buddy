@@ -1,40 +1,3 @@
-/*
-laranja : #f07e13
-laranja claro : #f07e13
-laranja pastel : #faf1de
-marrom : #481800
-areia : #e2d397
-areia claro : #eee2b8
-azul escuro: #0194be
-azul : #0fc3e8
-azul claro : #97eeff
-*/
-
-:root {
-    --cinza: #505050;
-    --laranja: #ff9c40;
-    --laranjaClaro: #faf1de;
-    --areia: #eee2b8;
-    --azul: #97eeff;
-  }
-*{
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    font-family: "Poppins", sans-serif;
-    color: var(--cinza);
-}
-a{
-    text-decoration: none;
-}
-input{
-    border-radius: 7px;
-    border: 0;
-    padding: 5px;
-}
-body{
-    background-color: var(--areia);
-}
 .tela{
     background-color: var(--laranjaClaro);
     margin: auto;
@@ -48,15 +11,6 @@ body{
     width: 80%;
     margin: auto;
 }
-.barraNavegacao{
-    height: 7vh;
-    line-height: 7vh;
-    background-color: var(--laranja);
-    display: flex;
-    justify-content: space-between;
-    padding-right: 1%;
-    padding-left: 1%;
-}
 .options{
     width: 20%;
     display: flex;
@@ -68,7 +22,6 @@ body{
 .card{
     background-color: var(--azul);
     width: 90%;
-    border:1px solid black;
     margin: auto;
     padding-top: 10px;
     padding-bottom: 10px;

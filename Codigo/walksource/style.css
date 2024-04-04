@@ -1,6 +1,19 @@
+:root {
+    --cinza: #505050;
+    --laranja: #ff9c40;
+    --laranjaClaro: #faf1de;
+    --areia: #eee2b8;
+    --azul: #97eeff;
+}
 *{
     margin: 0;
-    padding: 0; 
+    padding: 0;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    color: var(--cinza);
+}
+a{
+    text-decoration: none;
 }
 input{
     border-radius: 7px;
@@ -8,37 +21,14 @@ input{
     padding: 5px;
 }
 body{
-    background-color: orange;   
+    background-color: var(--areia);
 }
-h1{
-    text-align: center;
-}
-.login{
-    background-color: rgb(109, 109, 201);
-    margin: auto;
-    max-width: 70%;
-    margin-top: 5%;
-    height: 70vh;
-}
-.dados{
-    width: 45%;
-    background-color: rgb(109, 201, 140);
-    height: 100%;
-    float: left;
-}
-.fotos{
-    width: 55%;
-    background-color: rgb(128, 15, 98);
-    height: 100%;
-    float: left;
-}
-.dadosinterno{
-    height: 80%;
-    width: 80%;
-    margin: auto;
-    margin-top: 10%;
-    text-align: center;
-}
-.cadastro{
-    text-align: center;
+.barraNavegacao{
+    height: 7vh;
+    line-height: 7vh;
+    background-color: var(--laranja);
+    display: flex;
+    justify-content: space-between;
+    padding-right: 1%;
+    padding-left: 1%;
 }
