@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfil - Walk Buddy</title>
+  <title>Pagamentos - Walk Buddy</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -86,7 +86,7 @@
 
     .container {
       max-width: 800px;
-      margin: 50px auto; /* Centraliza as informações do perfil */
+      margin: 100px auto; /* Centraliza as informações de pagamento mais para baixo na tela */
       padding: 0 20px;
       text-align: center;
     }
@@ -95,40 +95,25 @@
       margin-top: 0;
     }
 
-    .profile-image {
-      margin-bottom: 20px;
-      width: 300px; /* Define a largura da imagem */
-      height: 300px; /* Define a altura da imagem */
+    .payment-options {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
     }
 
-    .profile-card {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      text-align: left; /* Alinha o texto do card à esquerda */
-      max-width: 300px; /* Define a largura máxima do card */
-      margin: 0 auto; /* Centraliza o card */
-    }
-
-    .profile-card p {
-      margin-bottom: 10px;
-    }
-
-    .change-button {
-      background-color: orange;
-      color: black;
-      padding: 5px 10px;
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 14px;
+      background-color: orange;
+      color: black;
       transition: background-color 0.3s;
-      margin-top: 10px;
     }
 
-    .change-button:hover {
+    button:hover {
       background-color: darkorange;
     }
 
@@ -140,6 +125,18 @@
       position: fixed;
       bottom: 0;
       width: 100%;
+    }
+
+    .payment-info {
+      margin-top: 40px;
+    }
+
+    .payment-info p {
+      margin-bottom: 10px;
+    }
+
+    .payment-info a {
+      color: white; /* Altera a cor do link de e-mail para branco */
     }
   </style>
 </head>
@@ -162,22 +159,33 @@
     </div>
   </header>
   <div class="container">
-    <img src="https://icones.pro/wp-content/uploads/2021/02/icone-utilisateur-orange.png" alt="Imagem de perfil" class="profile-image"> <!-- Adiciona uma imagem de perfil -->
-    <h2>Meu Perfil</h2>
-    <div class="profile-card">
-      <p><strong>Nome:</strong> João da Silva</p>
-      <p><strong>Idade:</strong> 30 anos</p>
-      <p><strong>Sexo:</strong> Masculino</p>
-      <p><strong>Pets adicionados:</strong> 3</p>
-      <p><strong>Passeios feitos:</strong> 10</p>
-      <p><strong>Avaliações recebidas (5):</strong> ★★★☆☆</p>
-      <p><strong>Endereço:</strong> Rua das Flores, 123 - Bairro Novo, Cidade Alegre</p>
-      <button class="change-button">Realizar mudanças</button> <!-- Adiciona um botão para realizar mudanças -->
+    <h2>Escolha uma opção de pagamento:</h2>
+    <div class="payment-options">
+      <button onclick="payWithCreditCard()">Cartão de Crédito</button>
+      <button onclick="payWithPix()">Pix</button>
+    </div>
+    <div class="payment-info">
+      <h2>Informações Adicionais:</h2>
+      <p>Para concluir seu pagamento, selecione uma das opções acima.</p>
+      <p>Após selecionar a forma de pagamento desejada, você será redirecionado para o processo de pagamento seguro.</p>
+      <p>Se precisar de assistência ou tiver alguma dúvida sobre o pagamento, entre em contato conosco pelo e-mail <a href="mailto:suporte@walkbuddy.com">suporte@walkbuddy.com</a>.</p>
     </div>
   </div>
   <footer>
     <p>&copy; 2024 Walk Buddy</p>
   </footer>
+
+  <script>
+    function payWithCreditCard() {
+      // Simulação de pagamento com cartão de crédito
+      alert("Pagamento com cartão de crédito realizado com sucesso!");
+    }
+
+    function payWithPix() {
+      // Simulação de pagamento com Pix
+      alert("Pagamento com Pix realizado com sucesso!");
+    }
+  </script>
 </body>
 
 </html>

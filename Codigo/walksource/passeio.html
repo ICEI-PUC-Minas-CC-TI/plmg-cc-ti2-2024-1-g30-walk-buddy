@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passeios - Walk Buddy</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+      background-color: black;
+      color: orange;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: black;
+      color: orange;
+      padding: 20px;
+      border-bottom: 1px solid orange;
+    }
+
+    header h1 {
+      margin: 0;
+      margin-right: 20px;
+      font-weight: bold;
+    }
+
+    header nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    header nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    header nav ul li a {
+      color: orange;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    header nav ul li a:hover {
+      color: #ffa500;
+    }
+
+    main {
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      margin-right: 50px; /* Adicionando margem entre os botões */
+    }
+
+    .buttons button.green {
+      background-color: yellow;
+      color: black;
+    }
+
+    .buttons button.red {
+      background-color: red;
+      color: white;
+    }
+
+    .passeio {
+      border: 1px solid orange;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 10px;
+      display: inline-block;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .passeio:hover {
+      transform: scale(1.05);
+    }
+
+    .passeio img {
+      width: 200px;
+      border-radius: 8px;
+    }
+
+    .info {
+      margin-top: 10px;
+    }
+
+    footer {
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer button {
+      background-color: orange;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    footer button:hover {
+      background-color: darkorange;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Walk Buddy</h1>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="passeios.html">Passeios</a></li>
+        <li><a href="perfil.html">Perfil</a></li>
+      </ul>
+    </nav>
+    <div class="search-box">
+      <form action="pesquisa.html" method="GET">
+        <input type="text" name="q" placeholder="Pesquisar...">
+        <button type="submit">Pesquisar</button>
+      </form>
+    </div>
+  </header>
+  <main>
+    <div class="buttons">
+      <button class="green">Acompanhar Passeio</button>
+      <button class="red">Cancelar Passeio</button>
+    </div>
+    <div class="passeio" onclick="window.location.href='pagamentos.html'">
+      <img src="https://www.shutterstock.com/image-photo/woman-walking-her-cute-beagle-260nw-1896285946.jpg" alt="Passeio 1">
+      <div class="info">
+        <h2>Passeio Matinal</h2>
+        <p>Passeio tranquilo pelo parque, ideal para cães de todas as idades.</p>
+        <p>Duração: 1 hora</p>
+        <p>Preço: R$ 30,00</p>
+      </div>
+    </div>
+    <div class="passeio" onclick="window.location.href='pagamentos.html'">
+      <img src="https://emmenetonchien.com/wp-content/uploads/2018/11/se-balader-la-nuit-avec-un-chien-conseils-balade-emmenetonchien.com_.png" alt="Passeio 2">
+      <div class="info">
+        <h2>Passeio Vespertino</h2>
+        <p>Passeio animado pela orla da cidade, ótimo para cães ativos.</p>
+        <p>Duração: 1 hora e meia</p>
+        <p>Preço: R$ 40,00</p>
+      </div>
+    </div>
+    <div class="passeio" onclick="window.location.href='pagamentos.html'">
+      <img src="https://static.vecteezy.com/ti/fotos-gratis/p1/23967939-acampamento-debaixo-estrelado-noite-ceu-leitoso-caminho-assistindo-homem-e-cachorro-proximo-para-barraca-dentro-nacional-parque-estrela-olhando-ilustracao-generativo-ai-foto.jpg" alt="Passeio 3">
+      <div class="info">
+        <h2>Passeio Noturno</h2>
+        <p>Passeio relaxante sob as estrelas, perfeito para cães que preferem o frescor da noite.</p>
+        <p>Duração: 1 hora</p>
+        <p>Preço: R$ 35,00</p>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2024 Walk Buddy</p>
+  </footer>
+</body>
+
+</html>

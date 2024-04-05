@@ -1,85 +1,289 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Walk Buddy</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="home.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Walk Buddy</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+      background-color: black; /* Alteração para fundo preto */
+      color: orange; /* Alteração para texto laranja */
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: black; /* Alteração para fundo preto */
+      color: orange; /* Alteração para texto laranja */
+      padding: 20px;
+      border-bottom: 1px solid orange; /* Adição da barra laranja */
+    }
+
+    header h1 {
+      margin: 0;
+      margin-right: 20px; /* Adiciona espaço entre h1 e páginas */
+      font-weight: bold; /* Torna o título principal em negrito */
+    }
+
+    header nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    header nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    header nav ul li a {
+      color: orange; /* Alteração para texto laranja */
+      text-decoration: none;
+      transition: color 0.3s; /* Adição de transição de cor */
+    }
+
+    header nav ul li a:hover {
+      color: #ffa500; /* Brilho em tom de laranja mais claro ao passar o mouse */
+    }
+
+    .search-box {
+      margin-left: auto; /* Move a caixa de pesquisa para o lado direito */
+      padding: 0 20px; /* Adiciona espaçamento interno */
+    }
+
+    .search-box form {
+      display: flex;
+    }
+
+    .search-box input[type="text"] {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      background-color: black; /* Alteração para fundo preto */
+      color: white; /* Alteração para texto branco */
+    }
+
+    .search-box button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      background-color: orange; /* Alteração para botão laranja */
+      color: black; /* Alteração para texto preto */
+      transition: background-color 0.3s;
+    }
+
+    .search-box button:hover {
+      background-color: darkorange; /* Alteração para hover do botão */
+    }
+
+    main {
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    .slide {
+      display: inline-block; /* Alinha as imagens em linha */
+      margin-right: 40px; /* Adiciona espaço entre as imagens e os botões */
+      width: calc(20% - 40px); /* Define a largura para caber exatamente 5 imagens em cada linha */
+    }
+
+    .slide img {
+      width: 100%; /* Torna as imagens responsivas */
+      height: 200px; /* Define a altura desejada para as imagens */
+      border-radius: 8px; /* Adiciona borda arredondada */
+    }
+
+    .ranking {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .description {
+      background-color: orange;
+      color: black;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: left;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between; /* Altera a distribuição dos botões */
+      margin-bottom: 40px; /* Adiciona mais espaço abaixo dos botões */
+      margin-top: 20px; /* Adiciona espaço entre a barra e os botões */
+      padding: 0 600px; /* Adiciona espaçamento interno aos botões */
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .buttons button.green {
+      background-color: green;
+      color: white;
+    }
+
+    .buttons button.yellow {
+      background-color: yellow;
+      color: black;
+    }
+
+    .buttons button.red {
+      background-color: red;
+      color: white;
+    }
+
+    footer {
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer button {
+      background-color: orange; /* Alteração para botão laranja */
+      color: black; /* Alteração para texto preto */
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    footer button:hover {
+      background-color: darkorange; /* Alteração para hover do botão */
+    }
+  </style>
 </head>
 
 <body>
-    <div class="barraNavegacao">
-        <div class="options">
-            <a href="#">
-                <h3>Home</h3>
-            </a>
-            <a href="pets.html">
-                <h3>Pets</h3>
-            </a>
-            <a href="passeios.html">
-                <h3>Passeios</h3>
-            </a>
-        </div>
-        <a href="perfil.html">
-            <img src="assets/perfil.png" alt="avatar" height="60">
-        </a>
+  <header>
+    <h1>Walk Buddy</h1>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="passeios.html">Passeios</a></li>
+        <li><a href="perfil.html">Perfil</a></li>
+      </ul>
+    </nav>
+    <div class="search-box">
+      <form action="pesquisa.html" method="GET">
+        <input type="text" name="q" placeholder="Pesquisar...">
+        <button type="submit">Pesquisar</button>
+      </form>
     </div>
-    <div class="tela">
-        <div class="informacoes">
-            <div class="eventos">
-                <h3>Eventos</h3><br>
-                <div class="card">
-                    <img src="assets/parque.png" alt="parque" class="imagemPasseio">
-                    <div class="descricao">
-                        <div class="tituloPasseio">
-                            Passeio no parque
-                        </div>
-                        Domingo, 21 de abril - 9h
+  </header>
+  <main>
+    <div class="buttons">
+        <button class="green" onclick="irParaPasseios()">Agendar</button>
+        <button onclick="location.href='pet.html'">Adicionar Pet</button> <!-- Botão Adicionar Pet -->
+      </div>
+    <div class="slide">
+      <span class="ranking">1º</span>
+      <img src="https://conteudo.imguol.com.br/c/noticias/73/2021/03/11/guilherme-chiapetti-de-apenas-22-anos-esta-entre-as-330-pessoas-que-morreram-enquanto-tentavam-tirar-selfies-1615493010155_v2_900x900.png" alt="Imagem 1">
+      <div class="description">
+        <p>Nome do Passeador</p>
+        <p>Breve descrição do passeador e de sua experiência</p>
+      </div>
+    </div>
+    <div class="slide">
+      <span class="ranking">2º</span>
+      <img src="https://www.agendartecultura.com.br/wp-content/uploads/2022/12/meneson.jpg" alt="Imagem 2">
+      <div class="description">
+        <p>Nome do Passeador</p>
+        <p>Breve descrição do passeador e de sua experiência</p>
+      </div>
+    </div>
+    <div class="slide">
+      <span class="ranking">3º</span>
+      <img src="https://img.freepik.com/fotos-gratis/estilo-de-vida-beleza-e-moda-conceito-de-emocoes-de-pessoas-jovem-gerente-de-escritorio-feminino-asiatico-ceo-com-expressao-satisfeita-em-pe-sobre-um-fundo-branco-sorrindo-com-os-bracos-cruzados-sobre-o-peito_1258-59329.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1712102400&semt=sph" alt="Imagem 3">
+      <div class="description">
+        <p>Nome do Passeador</p>
+        <p>Breve descrição do passeador e de sua experiência</p>
+      </div>
+    </div>
+    <div class="slide">
+      <span class="ranking">4º</span>
+      <img src="https://hypescience.com/wp-content/uploads/2010/03/feliz.jpg" alt="Imagem 4">
+      <div class="description">
+        <p>Nome do Passeador</p>
+        <p>Breve descrição do passeador e de sua experiência</p>
+      </div>
+    </div>
+    <div class="slide">
+      <span class="ranking">5º</span>
+      <img src="https://cajamar.sp.gov.br/noticias/wp-content/uploads/sites/2/2021/07/site-vacinacao-36-anos.png" alt="Imagem 5">
+      <div class="description">
+        <p>Nome do Passeador</p>
+        <p>Breve descrição do passeador e de sua experiência</p>
+      </div>
+    </div>
+    <div class="slide">
+      <span class="ranking">6º</span>
+      <img src="https://cajamar.sp.gov.br/noticias/wp-content/uploads/sites/2/2021/08/ed5d55c8-3966-4114-8ce4-9b9d0d25effd.png" alt="Imagem 6">
+      <div class="description">
+        <p>Nome do Passeador</p>
+        <p>Breve descrição do passeador e de sua experiência</p>
+      </div>
+    </div>
+    <div class="slide">
+      <span class="ranking">7º</span>
+      <img src="https://www.otempo.com.br/image/contentid/policy:1.2503902:1624581759/image.jpg?f=3x2&q=0.6&w=1200&$p$f$q$w=4633e5f" alt="Imagem 7">
+      <div class="description">
+        <p>Nome do Passeador</p>
+        <p>Breve descrição do passeador e de sua experiência</p>
+      </div>
+    </div>
+    <div class="slide">
+      <span class="ranking">8º</span>
+      <img src="https://cajamar.sp.gov.br/noticias/wp-content/uploads/sites/2/2021/08/site-vacinacao-26-anos.png" alt="Imagem 8">
+      <div class="description">
+        <p>Nome do Passeador</p>
+        <p>Breve descrição do passeador e de sua experiência</p>
+      </div>
+    </div>
+    <div class="slide">
+      <span class="ranking">9º</span>
+      <img src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/02/19/1564153283-ascendente.jpg" alt="Imagem 9">
+      <div class="description">
+        <p>Nome do Passeador</p>
+        <p>Breve descrição do passeador e de sua experiência</p>
+      </div>
+    </div>
+    <div class="slide">
+      <span class="ranking">10º</span>
+      <img src="https://www.mantecorpskincare.com.br/blog/assets/images/blog/posts/pessoas-com-sarda-no-rosto1.png" alt="Imagem 10">
+      <div class="description">
+        <p>Nome do Passeador</p>
+        <p>Breve descrição do passeador e de sua experiência</p>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2024 Walk Buddy</p>
+  </footer>
 
-                    </div>
-                </div>
-            </div>
-            <div class="artigos">
-                <h3>Artigos</h3>
-                <div class="card">
-                    <div class="descricao">
-                        Adotei um cachorro, o que preciso saber?
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="descricao">
-                        Como cuidar do seu animalzinho idoso
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="produtos">
-            <div class="dados">
-                <h3>Produtos</h3>
-                <div class="card">
-                    <div class="descricao">
-                        coleira anti pulgas
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="descricao">
-                        Pet protein
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="descricao">
-                        Tapete higienico
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  <script>
+    function irParaPasseios() {
+      window.location.href = "passeios.html";
+    }
+  </script>
 </body>
-<script src="script.js"></script>
 
 </html>

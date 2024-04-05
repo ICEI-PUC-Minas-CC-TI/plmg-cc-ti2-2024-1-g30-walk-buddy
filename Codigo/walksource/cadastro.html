@@ -1,46 +1,222 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Walk Buddy</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="cadastro.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login ou Cadastro - Meu Site</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: orange;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    main {
+      text-align: center;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    form {
+      display: inline-block;
+      padding: 20px;
+      background-color: black;
+      color: orange;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border: 1px solid orange;
+      max-width: 300px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select {
+      margin: 10px 0;
+      padding: 10px;
+      width: calc(100% - 22px);
+      box-sizing: border-box;
+      border: 1px solid orange;
+      border-radius: 4px;
+      font-size: 16px;
+      background-color: black;
+      color: orange;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    select:focus {
+      outline: none;
+      border-color: #ffa500;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      background-color: orange;
+      color: black;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: darkorange;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="login">
-        <div class="cadastro">
-            <h1>Seja bem vindo!</h1>
-            <div class="dadosinterno">
-                <form action="index.html" method="post">
-                    <label for="nome"><b>Nome</b></label><br>
-                    <input type="text" name="nome" id="nome"><br><br><br>
-
-                    <label for="email"><b>Email</b></label><br>
-                    <input type="email" name="email" id="email"><br><br><br>
-
-                    <p>Selecione o tipo de conta:</p>
-                    <input type="radio" id="dono" name="tipo" value="dono">
-                    <label for="dono">Dono de Pet</label><br>
-                    <input type="radio" id="passeador" name="tipo" value="passeador">
-                    <label for="age2">Walk Buddy</label><br><br>
-
-                    <label for="senha"><b>Senha</b></label><br>
-                    <input type="password" name="senha" id="senha"><br><br>
-                    <label for="senha"><b>Confirmar senha</b></label><br>
-                    <input type="password" name="senha2" id="senha2"><br><br>
-
-                    <input type="submit" value="Salvar">
-                </form>
-            </div>
-        </div>
+  <main>
+    <h2>Escolha uma opção:</h2>
+    <div>
+      <button onclick="showLogin()">Login</button>
+      <button onclick="showCadastro()">Cadastro</button>
     </div>
+
+    <div id="loginForm" style="display: none;">
+      <h2>Login</h2>
+      <form id="loginForm" onsubmit="return entrar()">
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" required>
+        </div>
+        <div>
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" required>
+        </div>
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+
+    <div id="cadastroForm" style="display: none;">
+      <h2>Cadastro</h2>
+      <form id="cadastroForm" onsubmit="return cadastrar()">
+        <div>
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" required>
+        </div>
+        <div>
+          <label for="emailCadastro">Email:</label>
+          <input type="email" id="emailCadastro" required>
+        </div>
+        <div>
+          <label for="endereco">Endereço:</label>
+          <input type="text" id="endereco" required>
+        </div>
+        <div>
+          <label for="idade">Idade:</label>
+          <input type="number" id="idade" required>
+        </div>
+        <div>
+          <label for="sexo">Sexo:</label>
+          <select id="sexo" required>
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+        <div>
+          <label for="senhaCadastro">Senha:</label>
+          <input type="password" id="senhaCadastro" required>
+        </div>
+        <div>
+          <label for="confirmSenha">Confirme a Senha:</label>
+          <input type="password" id="confirmSenha" required>
+        </div>
+        <button type="submit">Cadastrar</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    function showLogin() {
+      document.getElementById("loginForm").style.display = "block";
+      document.getElementById("cadastroForm").style.display = "none";
+    }
+
+    function showCadastro() {
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("cadastroForm").style.display = "block";
+    }
+
+    function entrar() {
+      var email = document.getElementById("email").value;
+      var senha = document.getElementById("senha").value;
+
+      // Verifica se o email contém o caractere "@"
+      var emailValido = email.includes("@");
+
+      // Se o email for válido e a senha não estiver vazia, redireciona para a página de perfil
+      if (emailValido && senha.trim() !== "") {
+        // Armazene os dados do usuário no local storage
+        localStorage.setItem("email", email);
+        localStorage.setItem("senha", senha);
+        // Redireciona para a página de perfil
+        window.location.href = "perfil.html";
+      } else {
+        // Exibe mensagem de erro
+        alert("Por favor, insira um email válido e uma senha!");
+      }
+
+      return false; // Evita o envio do formulário
+    }
+
+    function cadastrar() {
+      var nome = document.getElementById("nome").value;
+      var email = document.getElementById("emailCadastro").value;
+      var endereco = document.getElementById("endereco").value;
+      var idade = document.getElementById("idade").value;
+      var sexo = document.getElementById("sexo").value;
+      var senha = document.getElementById("senhaCadastro").value;
+      var confirmSenha = document.getElementById("confirmSenha").value;
+
+      // Verifica se o email contém o caractere "@"
+      var emailValido = email.includes("@");
+
+      // Verifica se as senhas coincidem
+      if (senha !== confirmSenha) {
+        alert("As senhas não coincidem!");
+        return false;
+      }
+
+      // Se o email for válido e a senha não estiver vazia, redireciona para a página de perfil
+      if (emailValido && senha.trim() !== "") {
+        // Armazene os dados do usuário no local storage
+        localStorage.setItem("nome", nome);
+        localStorage.setItem("email", email);
+        localStorage.setItem("endereco", endereco);
+        localStorage.setItem("idade", idade);
+        localStorage.setItem("sexo", sexo);
+        localStorage.setItem("senha", senha);
+        // Redireciona para a página de perfil
+        window.location.href = "home.html";
+      } else {
+        // Exibe mensagem de erro
+        alert("Por favor, preencha todos os campos corretamente!");
+      }
+
+      return false; // Evita o envio do formulário
+    }
+  </script>
+
 </body>
-<script src="script.js"></script>
 
 </html>
