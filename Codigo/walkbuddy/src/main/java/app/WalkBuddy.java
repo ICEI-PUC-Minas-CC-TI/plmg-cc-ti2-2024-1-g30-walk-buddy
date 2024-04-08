@@ -7,7 +7,7 @@ import service.UsuarioService;
 public class WalkBuddy {
 	public static void main(String[] args) {
 		get("hello",(request, response)->"Hello!");
-		get("abc",(request, response)->"defgh");
+		get("abc",(request, response)->"def");
 		get("test",(request, response)->UsuarioService.inserir(request, response));
 	}
 }
