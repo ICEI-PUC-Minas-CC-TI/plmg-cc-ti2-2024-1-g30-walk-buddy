@@ -1,0 +1,47 @@
+h1 {
+    text-align: center;
+}
+
+.login {
+    background-color: var(--laranjaClaro);
+    margin: auto;
+    max-width: 70%;
+    margin-top: 5%;
+    height: 70vh;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 20px;
+}
+
+.dados {
+    width: 45%;
+    height: 100%;
+    float: left;
+}
+
+.foto {
+    margin: auto;
+}
+
+.dadosinterno {
+    height: 80%;
+    width: 80%;
+    margin: auto;
+    margin-top: 10%;
+    text-align: center;
+}
+
+.cadastro {
+    text-align: center;
+}
+
+img {
+    border-radius: 10px;
+}
+
+.linhaVertical {
+    background-color: var(--cinzaClaro);
+    width: 2px;
+    height: 90%;
+    margin: auto;
+}

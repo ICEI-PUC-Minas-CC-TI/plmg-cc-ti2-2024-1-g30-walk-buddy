@@ -1,0 +1,49 @@
+.tela{
+    background-color: var(--laranjaClaro);
+    margin: auto;
+    max-width: 70%;
+    height: 93vh;
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+}
+.dados{
+    height: 80%;
+    width: 80%;
+    margin: auto;
+}
+.options{
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+}
+.eventos{
+    padding-top: 2%;
+}
+.card{
+    background-color: var(--azul);
+    width: 90%;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    margin-top: 10px;
+}
+.imagemPasseio{margin: 18px;
+    border-radius: 8px;
+    width: 400px;
+}
+.descricao{
+    margin: auto;
+}
+.tituloPasseio{
+    font-size: large;
+    font-weight: bold;
+}
+.artigos{
+    padding-top: 5%;
+}
+.produtos{
+    padding-top: 10%;
+    border-left: 1px dashed black;
+}
