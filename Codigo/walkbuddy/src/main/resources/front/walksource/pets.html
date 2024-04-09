@@ -33,11 +33,16 @@
     <div class="tela">
         <div class="titulo">
             <h3>Meus pets:</h3>
-            <a href="cadastroPet.html">
+            <!-- <a href="cadastroPet.html">
                 <div class="botaoAdd">
                     <h3>+ Adicionar</h3>
                 </div>
-            </a>
+            </a> -->
+            <button onclick="inserir()">
+                <div class="botaoAdd">
+                    <h3>+ Adicionar</h3>
+                </div>
+            </button>
         </div>
         <div class="lista">
             <div class="itemLista">
@@ -55,6 +60,12 @@
         </div>
     </div>
 </body>
-<script src="script.js"></script>
+<script>
+    async function inserir(){
+        const response = await fetch("http://localhost:4567/abc");
+        const data = await response.text();
+        console.log(data);
+    }
+</script>
 
 </html>

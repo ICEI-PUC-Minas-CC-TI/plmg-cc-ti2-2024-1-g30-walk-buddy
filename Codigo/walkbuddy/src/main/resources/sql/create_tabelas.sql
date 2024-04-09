@@ -1,0 +1,50 @@
+CREATE TYPE tipo_usuario AS ENUM ('dono', 'passeador');
+CREATE TABLE usuario (
+  id SERIAL PRIMARY KEY,
+  login VARCHAR(100) NOT NULL,
+  senha VARCHAR(255) NOT NULL,
+  nome VARCHAR(70) NOT NULL,
+  cpf CHAR(11) NOT NULL,
+  foto VARCHAR(255),
+  tipo tipo_usuario,
+  telefone1 CHAR(11) NOT NULL,
+  telefone2 CHAR(11),
+  telefone3 CHAR(11)
+);
+
+CREATE TABLE passeio (
+  id SERIAL PRIMARY KEY,
+  data DATE NOT NULL,
+  horario TIME NOT NULL,
+  valor FLOAT8,
+  observacoes VARCHAR(255),
+  id_passeador INT,
+  CONSTRAINT fk_passeador
+    FOREIGN KEY id_passeador
+      REFERENCES usuario(id)
+);
+
+CREATE TABLE pet (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(70) NOT NULL,
+  idade INT NOT NULL,
+  raca VARCHAR(30) NOT NULL,
+  perfilcomportamental VARCHAR(255),
+  foto VARCHAR(255),
+  id_dono INT NOT NULL,
+  CONSTRAINT fk_dono
+    FOREIGN KEY id_dono
+      REFERENCES usuario (id)
+);
+
+CREATE TABLE passeio_pet (
+  id_passeio INT NOT NULL,
+  id_pet INT NOT NULL,
+  PRIMARY KEY (id_passeio, id_pet),
+  CONSTRAINT fk_passeio
+    FOREIGN KEY id_passeio
+      REFERENCES passeio (id),
+  CONSTRAINT fk_pet
+    FOREIGN KEY id_pet
+      REFERENCES pet (id)
+);
