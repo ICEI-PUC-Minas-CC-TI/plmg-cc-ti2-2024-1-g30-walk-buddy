@@ -12,9 +12,14 @@ public class UsuarioService {
 		boolean sucesso = false;
 		response.status(400);
 		Usuario usuario = new Usuario();
-		usuario.nome = request.queryParams("nome");
+		usuario.email = request.queryParams("email");
 		usuario.senha = request.queryParams("senha");
+		usuario.nome = request.queryParams("nome");
 		usuario.cpf = request.queryParams("cpf");
+		usuario.foto = request.queryParams("foto");
+		usuario.tipo = request.queryParams("tipo");
+		usuario.telefone1 = request.queryParams("telefone1");
+		usuario.telefone2 = request.queryParams("telefone2");
 		sucesso = UsuarioDAO.inserir(usuario);
 		if(sucesso) {
 			resultado = "Usuario " + usuario.nome + " criado";

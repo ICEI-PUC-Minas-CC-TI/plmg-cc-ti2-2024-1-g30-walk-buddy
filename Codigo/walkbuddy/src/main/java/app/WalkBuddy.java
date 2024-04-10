@@ -13,7 +13,6 @@ public class WalkBuddy {
         });
 
 		get("hello",(request, response)->"Hello!");
-		get("abc",(request, response)->"def");
-		get("test",(request, response)->UsuarioService.inserir(request, response));
+		post("usuario",(request, response)->UsuarioService.inserir(request, response));
 	}
 }

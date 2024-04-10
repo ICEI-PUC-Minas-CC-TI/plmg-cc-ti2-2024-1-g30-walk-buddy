@@ -13,34 +13,81 @@
 </head>
 
 <body>
-    <div class="login">
+    <div class="tela">
         <div class="cadastro">
+            <div class="voltar">
+                <a href="index.html" >
+                    &lt Voltar
+                </a>
+            </div>
             <h1>Seja bem vindo!</h1>
             <div class="dadosinterno">
-                <form action="index.html" method="post">
-                    <label for="nome"><b>Nome</b></label><br>
-                    <input type="text" name="nome" id="nome"><br><br><br>
+                <label for="nome"><b>Nome</b></label><br>
+                <input type="text" name="nome" id="nome"><br><br>
 
-                    <label for="email"><b>Email</b></label><br>
-                    <input type="email" name="email" id="email"><br><br><br>
+                <label for="email"><b>Email</b></label><br>
+                <input type="email" name="email" id="email"><br><br>
 
+                <label for="senha"><b>Senha</b></label><br>
+                <input type="password" name="senha" id="senha"><br><br>
+
+                <label for="cpf"><b>CPF</b></label><br>
+                <input type="text" name="cpf" id="cpf"><br><br>
+
+                <!-- <label for="foto"><b>Foto</b></label><br>
+                    <input type="text" name="foto" id="foto"><br><br> -->
+
+                <label for="telefone"><b>Telefone</b></label><br>
+                <input type="text" name="telefone" id="telefone"><br><br>
+
+                <form action="" name="formtipo">
                     <p>Selecione o tipo de conta:</p>
-                    <input type="radio" id="dono" name="tipo" value="dono">
-                    <label for="dono">Dono de Pet</label><br>
-                    <input type="radio" id="passeador" name="tipo" value="passeador">
-                    <label for="age2">Walk Buddy</label><br><br>
-
-                    <label for="senha"><b>Senha</b></label><br>
-                    <input type="password" name="senha" id="senha"><br><br>
-                    <label for="senha"><b>Confirmar senha</b></label><br>
-                    <input type="password" name="senha2" id="senha2"><br><br>
-
-                    <input type="submit" value="Salvar">
+                    <input type="radio" id="tipoDono" name="tipo" value="dono">
+                    <label for="tipoDono">Dono de Pet</label><br>
+                    <input type="radio" id="tipoPasseador" name="tipo" value="passeador">
+                    <label for="tipoPasseador">Passeador</label><br><br>
                 </form>
+
+                <button onclick="cadastrar()">
+                    <h3>Cadastrar</h3>
+                </button>
             </div>
         </div>
     </div>
 </body>
-<script src="script.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+    function cadastrar() {
+        let nome = document.getElementById('nome').value;
+        let email = document.getElementById('email').value;
+        let senha = document.getElementById('senha').value;
+        let cpf = document.getElementById('cpf').value;
+        let telefone1 = document.getElementById('telefone').value;
+        let tipo = document.forms.formtipo.elements.tipo.value;
+        let usuario = {
+            nome,
+            email,
+            senha,
+            cpf,
+            telefone1,
+            tipo
+        }
+        const options = {
+            method: 'POST',
+            url: 'http://localhost:4567/usuario',
+            params: usuario,
+        };
+        axios.request(options).then((response) =>{
+            alert(response.data);
+            window.location.href = 'index.html';
+        }).catch(function (error) {
+            alert('Erro ao inserir');
+        });
+    }
+
+
+
+</script>
 
 </html>

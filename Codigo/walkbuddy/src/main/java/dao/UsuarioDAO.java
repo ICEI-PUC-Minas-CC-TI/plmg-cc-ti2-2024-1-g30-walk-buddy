@@ -10,9 +10,10 @@ public class UsuarioDAO {
 		try {
 			Connection conexao = DAO.conectar();
 			Statement st = conexao.createStatement();
-			String sql = "INSERT INTO usuarios (nome, senha, cpf) "
-		               + "VALUES ('" + usuario.nome + "', '"
-		               + usuario.senha + "', '" + usuario.cpf + "');";
+			String sql = "INSERT INTO usuario (email, senha, nome, cpf, foto, tipo, telefone1, telefone2) "
+		               + "VALUES ('" + usuario.email + "', '" + usuario.senha + "', '" + usuario.nome
+		               + "', '" + usuario.cpf + "', '" + usuario.foto + "', '" + usuario.tipo
+		               + "', '" + usuario.telefone1 + "', '" + usuario.telefone2 + "');";
 			st.executeUpdate(sql);
 			st.close();
 			status = true;

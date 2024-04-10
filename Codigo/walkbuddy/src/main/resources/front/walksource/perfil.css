@@ -15,6 +15,7 @@ input{
     height: 93vh;
     display:grid;
     grid-template-columns: 1fr 2fr;
+    box-shadow: 0px 4px 7px 1px var(--cinzaClaro);
 }
 .dados{
     height: 80%;
