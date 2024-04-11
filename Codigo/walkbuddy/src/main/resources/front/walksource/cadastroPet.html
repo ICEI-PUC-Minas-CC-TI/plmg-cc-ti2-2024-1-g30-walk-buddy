@@ -18,7 +18,7 @@
             <a href="home.html">
                 <h3>Home</h3>
             </a>
-            <a href="#">
+            <a href="pets.html">
                 <h3>Pets</h3>
             </a>
             <a href="passeios.html">
@@ -32,7 +32,7 @@
     </div>
     <div class="tela">
         <div class="titulo">
-            <h3>Cadastrar novo Pet</h3>
+            <h3>Cadastrar pet</h3>
         </div>
         <div class="lista">
             <label for="nome"><b>Nome</b></label><br>
@@ -41,28 +41,51 @@
             <label for="idade"><b>Idade</b></label><br>
             <input type="number" name="idade" id="idade"><br><br>
 
-            <label for="peso"><b>Peso</b></label><br>
-            <input type="number" name="peso" id="idade"><br><br>
+            <label for="raca"><b>Espécie/Raça</b></label><br>
+            <input type="text" name="raca" id="raca"><br><br>
 
-            <label for="tipo"><b>Especie/raça</b></label><br>
-            <input type="text" name="tipo" id="tipo"><br><br>
+            <label for="perfilComportamental"><b>Perfil Comportamental</b></label><br>
+            <input type="text" name="perfilComportamental" id="perfilComportamental"><br><br>
 
-            <label for="porte"><b>Porte</b></label><br>
-            <input type="radio" name="porte" value="pequeno">
-            <label for="porte">Pequeno</label><br>
-            <input type="radio" name="tipo" value="medio">
-            <label for="porte">Médio</label><br>
-            <input type="radio" name="tipo" value="grande">
-            <label for="porte">Grande</label><br><br><br>
-
-            <a href="pets.html">
-                <div class="botaoSave">
+            <button onclick="inserir()" class="botaoAdd">
+                <div>
                     <h3>Salvar</h3>
                 </div>
-            </a>
+            </button>
         </div>
     </div>
 </body>
-<script src="script.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    function inserir() {
+        let nome = document.getElementById('nome').value;
+        let idade = document.getElementById('idade').value;
+        let raca = document.getElementById('raca').value;
+        let perfilComportamental = document.getElementById('perfilComportamental').value;
+        let foto = undefined;
+        let idDono = 1;
+        let pet = {
+            nome,
+            idade,
+            raca,
+            perfilComportamental,
+            foto,
+            idDono
+        }
+        const options = {
+            method: 'POST',
+            url: 'http://localhost:4567/pet',
+            params: pet,
+        };
+        console.log(pet);
+        axios.request(options).then((response) =>{
+            console.log(response.data);
+            // alert(response.data);
+            // window.location.href = 'pet.html';
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+</script>
 
 </html>

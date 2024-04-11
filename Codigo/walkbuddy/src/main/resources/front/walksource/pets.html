@@ -33,16 +33,11 @@
     <div class="tela">
         <div class="titulo">
             <h3>Meus pets:</h3>
-            <!-- <a href="cadastroPet.html">
+            <a href="cadastroPet.html">
                 <div class="botaoAdd">
                     <h3>+ Adicionar</h3>
                 </div>
-            </a> -->
-            <button onclick="inserir()" class="botaoAdd">
-                <div>
-                    <h3>+ Adicionar</h3>
-                </div>
-            </button>
+            </a>
         </div>
         <div class="lista">
             <div class="itemLista">
@@ -58,13 +53,29 @@
                 <div>info do gato</div>
             </div>
         </div>
+        <button onclick="listar()" class="botaoAdd">
+            <div>
+                <h3>Listar</h3>
+            </div>
+        </button>
     </div>
 </body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
-    async function inserir(){
-        const response = await fetch("http://localhost:4567/abc");
-        const data = await response.text();
-        console.log(data);
+    function listar(){
+        const options = {
+            method: 'GET',
+            url: 'http://localhost:4567/pet',
+        };
+        axios.request(options).then((response) =>{
+            console.log(response.data);
+            // let lista = JSON.parse(response.data);
+            // console.log(lista);
+            // alert(response.data);
+            // window.location.href = 'pet.html';
+        }).catch(function (error) {
+            console.log(error);
+        });
     }
 </script>
 

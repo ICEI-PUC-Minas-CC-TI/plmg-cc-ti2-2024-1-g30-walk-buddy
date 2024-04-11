@@ -2,7 +2,7 @@ package app;
 
 import static spark.Spark.*;
 import spark.Filter;
-import service.UsuarioService;
+import service.*;
 
 public class WalkBuddy {
 	public static void main(String[] args) {
@@ -14,5 +14,7 @@ public class WalkBuddy {
 
 		get("hello",(request, response)->"Hello!");
 		post("usuario",(request, response)->UsuarioService.inserir(request, response));
+		post("pet",(request, response)->PetService.inserir(request, response));
+		get("pet",(request, response)->PetService.listar(request, response));
 	}
 }
