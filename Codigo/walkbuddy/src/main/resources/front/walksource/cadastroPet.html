@@ -55,7 +55,8 @@
         </div>
     </div>
 </body>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+<script src="assets/axios.min.js"></script>
 <script>
     function inserir() {
         let nome = document.getElementById('nome').value;
@@ -79,9 +80,8 @@
         };
         console.log(pet);
         axios.request(options).then((response) =>{
-            console.log(response.data);
-            // alert(response.data);
-            // window.location.href = 'pet.html';
+            alert(response.data);
+            window.location.href = 'pets.html';
         }).catch(function (error) {
             console.log(error);
         });

@@ -39,7 +39,7 @@
                 </div>
             </a>
         </div>
-        <div class="lista">
+        <div class="lista" id="listaPasseios">
             <div class="itemLista itemFuturo">
                 <h3>Toto & Pedro</h3><br>
                 <div>5km 14/04</div>
@@ -55,6 +55,30 @@
         </div>
     </div>
 </body>
-<script src="script.js"></script>
+<script src="assets/axios.min.js"></script>
+<script>
+    function listar(){
+        const options = {
+            method: 'GET',
+            url: 'http://localhost:4567/passeio',
+        }
+        axios.request(options).then((response) =>{
+            let passeios = response.data
+            const lista = document.getElementById('listaPasseios')
+            let conteudo = ""
+            passeios.forEach((passeio) => conteudo += gerarHTML(passeio))
+            lista.innerHTML = conteudo
+        }).catch(function (error) {
+            console.log(error)
+        })
+    }
+    function gerarHTML(passeio){
+        return `<div class="itemLista itemPassado">
+            <h3>Passeio do ${passeio.nomePet} com ${passeio.nomePasseador}</h3>
+            <h4>Dia ${passeio.data} as ${passeio.hora}</h4>
+        </div>`
+    }
+    listar()
+</script>
 
 </html>

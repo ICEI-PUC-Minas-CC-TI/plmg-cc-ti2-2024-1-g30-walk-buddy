@@ -39,19 +39,7 @@
                 </div>
             </a>
         </div>
-        <div class="lista">
-            <div class="itemLista">
-                <h3>Toto</h3><br>
-                <div>info do cao</div>
-            </div>
-            <div class="itemLista">
-                <h3>Mimi</h3><br>
-                <div>info do gato</div>
-            </div>
-            <div class="itemLista">
-                <h3>Mimi</h3><br>
-                <div>info do gato</div>
-            </div>
+        <div class="lista" id="listaPets">
         </div>
         <button onclick="listar()" class="botaoAdd">
             <div>
@@ -60,23 +48,33 @@
         </button>
     </div>
 </body>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+<script src="assets/axios.min.js"></script>
 <script>
     function listar(){
         const options = {
             method: 'GET',
             url: 'http://localhost:4567/pet',
-        };
+        }
         axios.request(options).then((response) =>{
-            console.log(response.data);
-            // let lista = JSON.parse(response.data);
-            // console.log(lista);
-            // alert(response.data);
-            // window.location.href = 'pet.html';
+            console.log(response.data)
+            let pets = response.data
+            const lista = document.getElementById('listaPets')
+            let conteudo = ""
+            pets.forEach((pet) => conteudo += gerarHTML(pet))
+            lista.innerHTML = conteudo
         }).catch(function (error) {
-            console.log(error);
-        });
+            console.log(error)
+        })
     }
+    function gerarHTML(pet){
+        return `<div class="itemLista">
+            <h3>${pet.nome}</h3>
+            <div>Raça: ${pet.raca}</div>
+            <div>Idade: ${pet.idade} anos</div>
+        </div>`
+    }
+    listar()
 </script>
 
 </html>

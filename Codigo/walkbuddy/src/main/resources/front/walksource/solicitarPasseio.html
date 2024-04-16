@@ -36,43 +36,81 @@
         </div>
         <div class="lista">
             <div class="itemLista">
-                <label for="pet"><b>Quem vai passear?</b></label>
-                <select id="pet" name="petlist">
-                    <option value="Toto">Toto</option>
-                    <option value="Mimi">Mimi</option>
-                    <option value="Rex">Rex</option>
-                    <option value="Athena">Athena</option>
+                <b>Quem vai passear?</b>
+                <select id="listaPets">
                 </select>
             </div>
-
             <div class="itemLista">
-                <label for="passeador"><b>Quem vai guiar o passeio?</b></label>
-                <select id="passeador" name="passeadorlist">
-                    <option value="Pedro">Pedro</option>
-                    <option value="Joao">Joao</option>
-                    <option value="Ana">Ana</option>
-                    <option value="Roberta">Roberta</option>
+                <b>Quem vai guiar o passeio?</b>
+                <select id="listaPasseadores">
                 </select>
             </div>
-
             <div class="itemLista">
-                <label for="data"><b>Data</b></label>
+                <b>Data</b>
                 <input type="date" name="data" id="data">
             </div>
-
             <div class="itemLista">
-                <label for="hora"><b>Hora</b></label>
+                <b>Hora</b>
                 <input type="time" name="hora" id="hora">
             </div>
-            
-            <a href="passeios.html">
-                <div class="botaoSave">
+            <button onclick="solicitar()" class="botaoSave">
+                <div>
                     <h3>Confirmar</h3>
                 </div>
-            </a>
+            </button>
         </div>
     </div>
 </body>
-<script src="script.js"></script>
+<script src="assets/axios.min.js"></script>
+<script>
+    let pets = [
+        { nome: "toto", id: 1 },
+        { nome: "tete", id: 2 },
+        { nome: "tiuu", id: 3 },
+        { nome: "tody", id: 4 },
+    ]
+    let passeadores = [
+        { nome: "joao", id: 1 },
+        { nome: "pedro", id: 2 },
+        { nome: "paulo", id: 3 },
+        { nome: "lucas", id: 4 },
+    ]
+    function setOptions() {
+        let conteudo = ""
+        for (pet of pets)
+            conteudo += `<option value="${pet.id}">${pet.nome}</option>`
+        document.getElementById('listaPets').innerHTML = conteudo
+
+        conteudo = ""
+        for (passeador of passeadores)
+            conteudo += `<option value="${passeador.id}">${passeador.nome}</option>`
+        document.getElementById('listaPasseadores').innerHTML = conteudo
+    }
+    setOptions()
+    function solicitar() {
+        let petId = document.getElementById('listaPets').value
+        let passeadorId = document.getElementById('listaPasseadores').value
+        let data = document.getElementById('data').value
+        let hora = document.getElementById('hora').value
+        let passeio = {
+            petId,
+            passeadorId,
+            data,
+            hora
+        }
+        const options = {
+            method: 'POST',
+            url: 'http://localhost:4567/passeio',
+            params: passeio,
+        }
+        console.log(passeio)
+        axios.request(options).then((response) =>{
+            alert(response.data)
+            window.location.href = 'passeios.html'
+        }).catch(function (error) {
+            console.log(error)
+        })
+    }
+</script>
 
 </html>

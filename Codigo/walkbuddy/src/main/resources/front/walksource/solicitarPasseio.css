@@ -50,14 +50,7 @@ input {
     padding-right: 5%;
 }
 
-.botaoAdd {
-    background-color: var(--verde);
-    padding: 7px;
-    border-radius: 8px;
-    box-shadow: 2px 2px 7px 1px var(--cinzaClaro);
-}
-
-.botaoAdd:active {
+.botaoSave:active {
     transform: translateY(2px);
 }
 
@@ -66,6 +59,7 @@ input {
     padding: 7px;
     border-radius: 8px;
     box-shadow: 2px 2px 7px 1px var(--cinzaClaro);
-    width: 40%;
+    width: 30%;
+    border: 0;
     margin: auto;
 }

@@ -23,12 +23,13 @@ public class PetDAO {
 	}
 	
 	public static String listar() {
-		String lista = "[";
+		String lista = "erro";
 		try {
 			Connection conexao = DAO.conectar();
 			Statement st = conexao.createStatement();
 			String sql = "SELECT * FROM pet;";
 			ResultSet rs = st.executeQuery(sql);
+			lista = "[";
 			while(rs.next()) {	            	
 	        	Pet pet = new Pet();
 	        	pet.id = rs.getInt("id");
@@ -40,7 +41,9 @@ public class PetDAO {
 	        	pet.idDono = rs.getInt("id_dono");
 	        	lista += pet.toString() + ",";
 	        }
-			lista = lista.substring(0, lista.length()-1) + "]";
+			if(lista.charAt(lista.length()-1)==',')
+				lista = lista.substring(0, lista.length()-1);
+			lista += "]";
 			st.close();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

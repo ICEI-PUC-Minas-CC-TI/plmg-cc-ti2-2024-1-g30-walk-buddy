@@ -17,7 +17,7 @@ CREATE TABLE usuario (
 CREATE TABLE passeio (
   id SERIAL PRIMARY KEY,
   data DATE NOT NULL,
-  horario TIME NOT NULL,
+  hora TIME NOT NULL,
   valor FLOAT8,
   observacoes VARCHAR(255),
   id_passeador INT,
