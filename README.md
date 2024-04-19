@@ -15,7 +15,7 @@ sustentabilidade ambiental e a geração de empregos na comunidade.
 
 ## Professores responsáveis
 
-* Josiane
+* Josiane da Costa Vieira Rezende
 * Wladmir Cardoso Brandao
 
 ## Instruções de utilização

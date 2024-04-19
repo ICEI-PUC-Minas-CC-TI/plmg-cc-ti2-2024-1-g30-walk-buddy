@@ -2,7 +2,7 @@ h1 {
     text-align: center;
 }
 
-.login {
+.cardPrincipal {
     background-color: var(--laranjaClaro);
     margin: auto;
     max-width: 70%;
@@ -17,23 +17,53 @@ h1 {
 .dados {
     width: 45%;
     height: 100%;
-    float: left;
+    display: block;
+    margin: auto;
+}
+
+.dadosLogin {
+    display: block;
+    margin-top: 10%;
+    height: 50%;
+}
+
+.label {
+    text-align: left;
+    padding-left: 10%;
+    padding-top: 4%;
+}
+
+input{
+    background-color: transparent;
+    width: 75%;
+    border-bottom: 1px solid var(--cinzaClaro);
+    border-radius: 0;
+}
+input:focus{
+    outline: none;
+}
+
+.dadosCadastro {
+    display: block;
+    margin-top: 5%;
+    height: 30%;
+}
+
+button{
+    margin-top:5%;
+    padding: 1% 4%;
+    border:0;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px 1px var(--cinzaClaro);
+    background-color: var(--azul2);
+}
+
+button:active {
+    transform: translateY(2px);
 }
 
 .foto {
     margin: auto;
-}
-
-.dadosinterno {
-    height: 80%;
-    width: 80%;
-    margin: auto;
-    margin-top: 10%;
-    text-align: center;
-}
-
-.cadastro {
-    text-align: center;
 }
 
 img {

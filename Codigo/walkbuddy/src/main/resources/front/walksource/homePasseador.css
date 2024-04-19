@@ -1,0 +1,31 @@
+.tela{
+    background-color: var(--laranjaClaro);
+    margin: auto;
+    max-width: 70%;
+    height: 93vh;
+    box-shadow: 0px 4px 7px 1px var(--cinzaClaro);
+}
+.dados{
+    height: 80%;
+    width: 80%;
+    margin: auto;
+}
+.options{
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+}
+.card{
+    background-color: var(--azul);
+    width: 90%;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    margin-top: 10px;
+}
+.tituloPasseio{
+    font-size: large;
+    font-weight: bold;
+}

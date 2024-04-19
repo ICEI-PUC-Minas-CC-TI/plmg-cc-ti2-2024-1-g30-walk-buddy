@@ -13,20 +13,31 @@
 </head>
 
 <body>
-    <div class="login">
+    <div class="cardPrincipal">
         <div class="dados">
-            <div class="dadosinterno">
-                <form action="home.html" method="post">
-                    <label for="email"><b>Usuario</b></label><br>
-                    <input type="email" name="email" id="email"><br><br><br>
-                    <label for="senha"><b>Senha</b></label><br>
-                    <input type="password" name="senha" id="senha"><br><br>
-                    <input type="submit" value="entrar">
-                </form>
-                <br><br><br>
-                <h2>Novo aqui?</h2><br>
+            <div class="dadosLogin">
+                <h2>Bem vindo!</h2>
+                <div class="label">
+                    Usuario:
+                </div>
+                <input type="text" id="nomeDeUsuario">
+                <div class="label">
+                    Senha:
+                </div>
+                <input type="password" id="senha">
+
+                <div>
+                    <button onclick="login()" class="">
+                        Entrar
+                    </button>
+                </div>
+            </div>
+            <div class="dadosCadastro">
+                <h2>Novo aqui?</h2>
                 <a href="cadastro.html">
-                    <input type="button" value="Registre-se!">
+                    <button>
+                        Registre-se!
+                    </button>
                 </a>
             </div>
         </div>
@@ -36,6 +47,29 @@
         </div>
     </div>
 </body>
-<script src="script.js"></script>
+<script src="assets/axios.min.js"></script>
+<script>
+    function login() {
+        let email = document.getElementById('nomeDeUsuario').value
+        let senha = document.getElementById('senha').value
+        let params = {email,senha}
+        const options = {
+            method: 'POST',
+            url: 'http://localhost:4567/login',
+            params,
+        }
+        axios.request(options).then((response) => {
+            localStorage.setItem('idUsuario',response.data.idUsuario)
+            localStorage.setItem('tipoUsuario',response.data.tipoUsuario)
+            if(response.data.tipoUsuario == 'dono')
+                window.location.href = 'home.html'
+            else
+                window.location.href = 'homePasseador.html';
+        }).catch(function (error) {
+            console.log(error)
+            console.log(error.response.data)
+        })
+    }
+</script>
 
 </html>

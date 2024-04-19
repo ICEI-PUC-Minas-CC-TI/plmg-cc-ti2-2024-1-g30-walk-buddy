@@ -27,4 +27,22 @@ public class UsuarioService {
 		}
 		return resultado;
 	}
+
+	public static String login(Request request, Response response) {
+		String resultado = "erro";
+		response.status(400);
+		Usuario usuarioRequest = new Usuario();
+		usuarioRequest.email = request.queryParams("email");
+		usuarioRequest.senha = request.queryParams("senha");
+		Usuario usuarioBanco = UsuarioDAO.procurarPorEmail(usuarioRequest.email);
+		if(usuarioRequest.email.equals(usuarioBanco.email) && usuarioRequest.senha.equals(usuarioBanco.senha)) {
+			resultado = "{\"idUsuario\":" + usuarioBanco.id + ",\"tipoUsuario\":\""+ usuarioBanco.tipo +"\"}";
+            response.status(200);
+		}
+		else {
+			resultado = "usuario nao encontrado";
+            response.status(404);
+		}
+		return resultado;
+	}
 }

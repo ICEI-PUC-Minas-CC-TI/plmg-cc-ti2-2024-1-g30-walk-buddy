@@ -15,6 +15,7 @@ public class WalkBuddy {
 
 		//usuario
 		post("usuario",(request, response)->UsuarioService.inserir(request, response));
+		post("login",(request, response)->UsuarioService.login(request, response));
 
 		//pet
 		post("pet",(request, response)->PetService.inserir(request, response));
