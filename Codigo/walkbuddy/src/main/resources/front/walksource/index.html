@@ -47,6 +47,7 @@
         </div>
     </div>
 </body>
+<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
 <script src="assets/axios.min.js"></script>
 <script>
     function login() {
@@ -67,7 +68,7 @@
                 window.location.href = 'homePasseador.html';
         }).catch(function (error) {
             console.log(error)
-            console.log(error.response.data)
+            alert(error.response.data)
         })
     }
 </script>

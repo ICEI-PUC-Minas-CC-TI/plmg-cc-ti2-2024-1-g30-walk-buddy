@@ -40,7 +40,7 @@ public class UsuarioService {
             response.status(200);
 		}
 		else {
-			resultado = "usuario nao encontrado";
+			resultado = "Usuário não encontrado";
             response.status(404);
 		}
 		return resultado;
