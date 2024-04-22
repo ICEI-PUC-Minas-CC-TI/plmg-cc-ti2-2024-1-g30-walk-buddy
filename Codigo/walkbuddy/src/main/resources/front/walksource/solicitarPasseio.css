@@ -4,10 +4,11 @@
     text-align: center;
 }
 
-input {
+input, select {
     border-radius: 7px;
     border: 0;
     padding: 5px;
+    background-color: var(--cinzaClaro2);
 }
 
 .tela {

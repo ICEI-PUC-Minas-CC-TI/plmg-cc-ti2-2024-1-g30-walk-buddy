@@ -41,21 +41,16 @@
         </div>
         <div class="lista" id="listaPets">
         </div>
-        <button onclick="listar()" class="botaoAdd">
-            <div>
-                <h3>Listar</h3>
-            </div>
-        </button>
     </div>
 </body>
 <script src="assets/axios.min.js"></script>
 <script>
-    function listar(){
+    function listar() {
         const options = {
             method: 'GET',
             url: 'http://localhost:4567/pet',
         }
-        axios.request(options).then((response) =>{
+        axios.request(options).then((response) => {
             console.log(response.data)
             let pets = response.data
             const lista = document.getElementById('listaPets')
@@ -66,7 +61,7 @@
             console.log(error)
         })
     }
-    function gerarHTML(pet){
+    function gerarHTML(pet) {
         return `<div class="itemLista">
             <h3>${pet.nome}</h3>
             <div>Raça: ${pet.raca}</div>

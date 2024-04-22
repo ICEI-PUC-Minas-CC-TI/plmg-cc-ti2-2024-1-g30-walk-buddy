@@ -13,8 +13,12 @@ public class PasseioDAO {
 		try {
 			Connection conexao = DAO.conectar();
 			Statement st = conexao.createStatement();
-			String sql = "INSERT INTO passeio (data, hora, id_passeador) "
-		               + "VALUES ('" + passeio.data + "', '" + passeio.hora + "', " + passeio.idPasseador + ");";
+			String sql = "INSERT INTO passeio (data, hora, estado, id_passeador) "
+		               + "VALUES ('" + passeio.data + "', '" + passeio.hora + "', 'solicitado', ";
+			if(passeio.idPasseador > 0)
+				sql += passeio.idPasseador + ");";
+			else
+				sql += "null);";
 			st.executeUpdate(sql);
 			sql = "SELECT currval('passeio_id_seq');";
 			ResultSet rs = st.executeQuery(sql);
@@ -50,14 +54,16 @@ public class PasseioDAO {
 		try {
 			Connection conexao = DAO.conectar();
 			Statement st = conexao.createStatement();
-			String sql = "SELECT passeio.data, passeio.hora, pet.nome AS nomePet, usuario.nome AS nomePasseador "+
+			String sql = "SELECT passeio.id AS passeioid, passeio.estado, passeio.data, passeio.hora, pet.nome AS nomePet, usuario.nome AS nomePasseador "+
 				"FROM passeio JOIN passeio_pet ON passeio.id = passeio_pet.id_passeio "+
-				"JOIN pet ON pet.id = passeio_pet.id_pet JOIN usuario ON usuario.id = passeio.id_passeador;";
+				"JOIN pet ON pet.id = passeio_pet.id_pet LEFT JOIN usuario ON usuario.id = passeio.id_passeador;";
 			ResultSet rs = st.executeQuery(sql);
 			lista = "[";
 			while(rs.next()) {	            	
 	        	json = "{";
+	        	json += "\"id\": " + rs.getInt("passeioid") + ",";
 	    		json += "\"data\": \"" + rs.getString("data") + "\",";
+	    		json += "\"estado\": \"" + rs.getString("estado") + "\",";
 	    		json += "\"hora\": \"" + rs.getString("hora") + "\",";
 	    		json += "\"nomePet\": \"" + rs.getString("nomePet") + "\",";
 	    		json += "\"nomePasseador\": \"" + rs.getString("nomePasseador") + "\"";
@@ -72,6 +78,23 @@ public class PasseioDAO {
 			System.out.println(e.getMessage());
 		}
 		return lista;
+	}
+
+	public static String aceitar(int idPasseio, int idPasseador) {
+		String resultado = "erro";
+		try {
+			Connection conexao = DAO.conectar();
+			Statement st = conexao.createStatement();
+			String sql = "UPDATE passeio SET estado = 'aceito', id_passeador = " + idPasseador +
+					" WHERE id = " + idPasseio + ";";
+			st.executeUpdate(sql);
+			st.close();
+			conexao.close();
+			resultado = "sucesso";
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return resultado;
 	}
 
 }

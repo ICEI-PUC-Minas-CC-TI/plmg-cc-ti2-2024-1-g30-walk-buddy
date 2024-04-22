@@ -9,15 +9,17 @@ CREATE TABLE usuario (
   nome VARCHAR(70) NOT NULL,
   cpf CHAR(11) NOT NULL,
   foto VARCHAR(255),
-  tipo tipo_usuario,
+  tipo tipo_usuario NOT NULL,
   telefone1 CHAR(11) NOT NULL,
   telefone2 CHAR(11)
 );
 
+CREATE TYPE estado_passeio AS ENUM ('solicitado', 'aceito','em andamento', 'concluido', 'avaliado');
 CREATE TABLE passeio (
   id SERIAL PRIMARY KEY,
   data DATE NOT NULL,
   hora TIME NOT NULL,
+  estado estado_passeio NOT NULL,
   valor FLOAT8,
   observacoes VARCHAR(255),
   id_passeador INT,

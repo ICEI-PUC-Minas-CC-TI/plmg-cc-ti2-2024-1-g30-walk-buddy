@@ -63,19 +63,7 @@
 </body>
 <script src="assets/axios.min.js"></script>
 <script>
-    let pets = [
-        { nome: "toto", id: 1 },
-        { nome: "tete", id: 2 },
-        { nome: "tiuu", id: 3 },
-        { nome: "tody", id: 4 },
-    ]
-    let passeadores = [
-        { nome: "joao", id: 1 },
-        { nome: "pedro", id: 2 },
-        { nome: "paulo", id: 3 },
-        { nome: "lucas", id: 4 },
-    ]
-    function setOptions() {
+    function setOptions(pets, passeadores) {
         let conteudo = ""
         for (pet of pets)
             conteudo += `<option value="${pet.id}">${pet.nome}</option>`
@@ -86,7 +74,26 @@
             conteudo += `<option value="${passeador.id}">${passeador.nome}</option>`
         document.getElementById('listaPasseadores').innerHTML = conteudo
     }
-    setOptions()
+    function getOptions() {
+        let pet = 'sim'
+        let passeador = 'sim'
+        let opcoes = {
+            pet,
+            passeador
+        }
+        const options = {
+            method: 'POST',
+            url: 'http://localhost:4567/opcoes',
+            params: opcoes,
+        }
+        axios.request(options).then((response) => {
+            console.log(response.data)
+            setOptions(response.data.pet, response.data.passeador)
+        }).catch(function (error) {
+            console.log(error)
+        })
+    }
+    getOptions()
     function solicitar() {
         let petId = document.getElementById('listaPets').value
         let passeadorId = document.getElementById('listaPasseadores').value
@@ -104,7 +111,7 @@
             params: passeio,
         }
         console.log(passeio)
-        axios.request(options).then((response) =>{
+        axios.request(options).then((response) => {
             alert(response.data)
             window.location.href = 'passeios.html'
         }).catch(function (error) {

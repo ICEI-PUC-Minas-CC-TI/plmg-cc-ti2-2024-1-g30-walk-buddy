@@ -23,6 +23,10 @@ public class WalkBuddy {
 
 		//passeio
 		post("passeio",(request, response)->PasseioService.inserir(request, response));
+		post("passeio/aceitar",(request, response)->PasseioService.aceitar(request, response));
 		get("passeio",(request, response)->PasseioService.listar(request, response));
+
+		//opcoes
+		post("opcoes",(request, response)->OpcoesService.getOpcoes(request, response));
 	}
 }

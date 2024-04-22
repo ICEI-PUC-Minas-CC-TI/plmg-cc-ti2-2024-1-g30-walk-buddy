@@ -14,7 +14,7 @@
 
 <body>
     <div class="barraNavegacao">
-        <div class="options">
+        <div class="options" id="barraNav">
             <a href="home.html">
                 <h3>Home</h3>
             </a>
@@ -54,6 +54,17 @@
         </div>
     </div>
 </body>
-<script src="script.js"></script>
+<script src="assets/axios.min.js"></script>
+<script>
+    function barraNavegacao(){
+        let tipo = localStorage.getItem('tipoUsuario')
+        if (tipo == 'passeador'){
+            document.getElementById('barraNav').innerHTML = `<a href="homePasseador.html">
+                                                                <h3>Home</h3>
+                                                            </a>`
+        }
+    }
+    barraNavegacao()
+</script>
 
 </html>

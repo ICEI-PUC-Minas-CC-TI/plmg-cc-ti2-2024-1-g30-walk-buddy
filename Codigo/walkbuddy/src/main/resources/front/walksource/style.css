@@ -1,11 +1,13 @@
 :root {
     --cinza: #505050;
     --cinzaClaro: #888;
+    --cinzaClaro2: #eee;
     --laranja: #ffab5c;
     --laranjaClaro: #faf1de;
     --areia: #eee2b8;
     --verde:rgb(149, 255, 135);
     --azul:rgb(184, 204, 229);
+    --vermelho:rgb(220, 120, 120);
 }
 *{
     margin: 0;

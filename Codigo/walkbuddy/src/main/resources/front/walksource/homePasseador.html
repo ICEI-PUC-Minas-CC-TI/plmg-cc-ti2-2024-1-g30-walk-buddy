@@ -26,33 +26,83 @@
     <div class="tela">
         <div class="informacoes">
             <h3>Passseios:</h3><br>
-            <div class="card">
-                <div class="descricao">
-                    <div class="tituloPasseio">
-                        Passeio com toto
-                    </div>
-                    Domingo, 21 de abril - 9h
-                </div>
-            </div>
-            <div class="card">
-                <div class="descricao">
-                    <div class="tituloPasseio">
-                        Passeio com mimi
-                    </div>
-                    segunda, 22 de abril - 14h
-                </div>
-            </div>
-            <div class="card">
-                <div class="descricao">
-                    <div class="tituloPasseio">
-                        Passeio com Rex
-                    </div>
-                    Sabado, 20 de abril - 8h
-                </div>
+            <div class="lista" id="listaPasseios">
             </div>
         </div>
     </div>
 </body>
-<script src="script.js"></script>
+<script src="assets/axios.min.js"></script>
+<script>
+    function listar() {
+        const options = {
+            method: 'GET',
+            url: 'http://localhost:4567/passeio',
+        }
+        axios.request(options).then((response) => {
+            let passeios = response.data
+            console.log(passeios)
+            const lista = document.getElementById('listaPasseios')
+            let conteudo = ""
+            passeios.forEach((passeio) => conteudo += gerarHTML(passeio))
+            lista.innerHTML = conteudo
+        }).catch(function (error) {
+            console.log(error)
+        })
+    }
+    function gerarHTML(passeio) {
+        return `<div class="itemLista">
+                    <div>
+                        <h3>Passeio do ${passeio.nomePet} com ${passeio.nomePasseador}</h3>
+                        <h4>Dia ${passeio.data} as ${passeio.hora}</h4>
+                    </div>
+                    ${gerarBotao(passeio.id, passeio.estado)}
+                </div>`
+    }
+    function gerarBotao(passeioId, estado) {
+        if (estado == 'avaliado')
+            return ''
+        let texto = 'aceitar'
+        if (estado == 'aceito') {
+            texto = 'Iniciar'
+        }
+        else if (estado == 'em andamento') {
+            estado = 'emAndamento'
+            texto = 'Finalizar'
+        }
+        else if (estado == 'concluido') {
+            texto = 'Avaliar'
+        }
+        return `<div class="botaoAdd ${estado}" onclick="aceitar(${passeioId},'${estado}')">
+                    <h3>${texto}</h3>
+                </div>`
+    }
+    listar()
+    function aceitar(idPasseio, estado) {
+        let idPasseador = localStorage.getItem('idUsuario')
+        let data = {
+            idPasseio,
+            idPasseador,
+        }
+        let url = 'http://localhost:4567/passeio/aceitar'
+        if (estado == 'aceito')
+            url = 'http://localhost:4567/passeio/iniciar'
+        else if (estado == 'emAndamento')
+            url = 'http://localhost:4567/passeio/finalizar'
+        else if (estado == 'concluido')
+            url = 'http://localhost:4567/passeio/avaliar'
+
+        const options = {
+            method: 'POST',
+            url,
+            params: data,
+        }
+        axios.request(options).then((response) => {
+            console.log(response.data)
+            listar()
+        }).catch(function (error) {
+            console.log(error)
+        })
+    }
+</script>
 
 </html>
