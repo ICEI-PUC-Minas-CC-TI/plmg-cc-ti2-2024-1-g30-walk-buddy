@@ -24,6 +24,9 @@ public class WalkBuddy {
 		//passeio
 		post("passeio",(request, response)->PasseioService.inserir(request, response));
 		post("passeio/aceitar",(request, response)->PasseioService.aceitar(request, response));
+		post("passeio/iniciar",(request, response)->PasseioService.iniciar(request, response));
+		post("passeio/finalizar",(request, response)->PasseioService.finalizar(request, response));
+		post("passeio/avaliar",(request, response)->PasseioService.avaliar(request, response));
 		get("passeio",(request, response)->PasseioService.listar(request, response));
 
 		//opcoes

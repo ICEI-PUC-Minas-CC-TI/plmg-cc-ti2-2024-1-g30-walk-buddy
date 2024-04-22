@@ -41,4 +41,31 @@ public class PasseioService {
 		return resultado;
 	}
 
+	public static String iniciar(Request request, Response response) {
+		String resultado = "erro";
+		int idPasseio = Integer.parseInt(request.queryParams("idPasseio"));
+		int idPasseador = Integer.parseInt(request.queryParams("idPasseador"));
+		resultado = PasseioDAO.iniciar(idPasseio,idPasseador);
+        response.status(200);
+		return resultado;
+	}
+
+	public static String finalizar(Request request, Response response) {
+		String resultado = "erro";
+		int idPasseio = Integer.parseInt(request.queryParams("idPasseio"));
+		int idPasseador = Integer.parseInt(request.queryParams("idPasseador"));
+		resultado = PasseioDAO.finalizar(idPasseio,idPasseador);
+        response.status(200);
+		return resultado;
+	}
+
+	public static String avaliar(Request request, Response response) {
+		String resultado = "erro";
+		int idPasseio = Integer.parseInt(request.queryParams("idPasseio"));
+		int idPasseador = Integer.parseInt(request.queryParams("idPasseador"));
+		resultado = PasseioDAO.avaliar(idPasseio,idPasseador);
+        response.status(200);
+		return resultado;
+	}
+
 }

@@ -97,4 +97,52 @@ public class PasseioDAO {
 		return resultado;
 	}
 
+	public static String iniciar(int idPasseio, int idPasseador) {
+		String resultado = "erro";
+		try {
+			Connection conexao = DAO.conectar();
+			Statement st = conexao.createStatement();
+			String sql = "UPDATE passeio SET estado = 'em andamento' WHERE id = " + idPasseio + ";";
+			st.executeUpdate(sql);
+			st.close();
+			conexao.close();
+			resultado = "sucesso";
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return resultado;
+	}
+
+	public static String finalizar(int idPasseio, int idPasseador) {
+		String resultado = "erro";
+		try {
+			Connection conexao = DAO.conectar();
+			Statement st = conexao.createStatement();
+			String sql = "UPDATE passeio SET estado = 'concluido' WHERE id = " + idPasseio + ";";
+			st.executeUpdate(sql);
+			st.close();
+			conexao.close();
+			resultado = "sucesso";
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return resultado;
+	}
+
+	public static String avaliar(int idPasseio, int idPasseador) {
+		String resultado = "erro";
+		try {
+			Connection conexao = DAO.conectar();
+			Statement st = conexao.createStatement();
+			String sql = "UPDATE passeio SET estado = 'avaliado' WHERE id = " + idPasseio + ";";
+			st.executeUpdate(sql);
+			st.close();
+			conexao.close();
+			resultado = "sucesso";
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return resultado;
+	}
+
 }
