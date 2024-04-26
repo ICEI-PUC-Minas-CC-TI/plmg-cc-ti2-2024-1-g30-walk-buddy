@@ -9,7 +9,7 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="pets.css">
+    <link rel="stylesheet" href="passeios.css">
 </head>
 
 <body>
@@ -18,54 +18,52 @@
             <a href="home.html">
                 <h3>Home</h3>
             </a>
-            <a href="#">
+            <a href="pets.html">
                 <h3>Pets</h3>
             </a>
-            <a href="passeios.html">
+            <a href="#">
                 <h3>Passeios</h3>
             </a>
         </div>
         <a href="perfil.html">
-            <img src="assets/perfil.png" alt="avatar" height="60">
+            <img src="../assets/perfil.png" alt="avatar" height="60">
         </a>
 
     </div>
     <div class="tela">
         <div class="titulo">
-            <h3>Meus pets:</h3>
-            <a href="cadastroPet.html">
+            <h3>Meus passeios:</h3>
+            <a href="solicitarPasseio.html">
                 <div class="botaoAdd">
-                    <h3>+ Adicionar</h3>
+                    <h3>+ Agendar</h3>
                 </div>
             </a>
         </div>
-        <div class="lista" id="listaPets">
+        <div class="lista" id="listaPasseios">
         </div>
     </div>
 </body>
-<script src="assets/axios.min.js"></script>
+<script src="../assets/axios.min.js"></script>
 <script>
-    function listar() {
+    function listar(){
         const options = {
             method: 'GET',
-            url: 'http://localhost:4567/pet',
+            url: 'http://localhost:4567/passeio',
         }
-        axios.request(options).then((response) => {
-            console.log(response.data)
-            let pets = response.data
-            const lista = document.getElementById('listaPets')
+        axios.request(options).then((response) =>{
+            let passeios = response.data
+            const lista = document.getElementById('listaPasseios')
             let conteudo = ""
-            pets.forEach((pet) => conteudo += gerarHTML(pet))
+            passeios.forEach((passeio) => conteudo += gerarHTML(passeio))
             lista.innerHTML = conteudo
         }).catch(function (error) {
             console.log(error)
         })
     }
-    function gerarHTML(pet) {
-        return `<div class="itemLista">
-            <h3>${pet.nome}</h3>
-            <div>Raça: ${pet.raca}</div>
-            <div>Idade: ${pet.idade} anos</div>
+    function gerarHTML(passeio){
+        return `<div class="itemLista itemPassado">
+            <h3>Passeio do ${passeio.nomePet} com ${passeio.nomePasseador}</h3>
+            <h4>Dia ${passeio.data} as ${passeio.hora}</h4>
         </div>`
     }
     listar()
