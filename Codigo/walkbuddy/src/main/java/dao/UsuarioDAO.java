@@ -43,4 +43,26 @@ public class UsuarioDAO {
 		return pesquisado;
 	}
 
+	public static Usuario procurarPorId(int id) {
+		Usuario pesquisado = new Usuario();
+		try {
+			Connection conexao = DAO.conectar();
+			Statement st = conexao.createStatement();
+			String sql = "SELECT * FROM usuario WHERE id = " + id + ";";
+			ResultSet rs = st.executeQuery(sql);
+			if(rs.next()) {
+				pesquisado.id = id;
+				pesquisado.nome = rs.getString("nome");
+				pesquisado.email = rs.getString("email");
+				pesquisado.foto = rs.getString("foto");
+				pesquisado.tipo = rs.getString("tipo");
+				pesquisado.telefone1 = rs.getString("telefone1");
+			}
+			st.close();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return pesquisado;
+	}
+
 }

@@ -45,4 +45,13 @@ public class UsuarioService {
 		}
 		return resultado;
 	}
+
+	public static String getPerfilData(Request request, Response response) {
+		String resultado = "erro";
+		response.status(400);
+		Usuario usuario = UsuarioDAO.procurarPorId(Integer.parseInt(request.queryParams("id")));
+		resultado = usuario.getPerfilData();
+		response.status(200);
+		return resultado;
+	}
 }

@@ -28,43 +28,74 @@
         <a href="perfil.html">
             <img src="assets/perfil.png" alt="avatar" height="60">
         </a>
-
     </div>
     <div class="tela">
         <div class="informacoes">
-            <img src="assets/pedro.png" alt="" height="350">
-            <div class="artigos">
-                <br>
-                <div>Belo Horizonte, MG</div>
+            <div class="foto">
+                <img alt="foto perfil" id="fotoPerfil" width="300">
+            </div>
+            <div class="dados">
+                <div id="nomeCompleto">
+                    nome
+                </div>
+                <div id="email">
+                    email
+                </div>
+                <div id="telefone">
+                    telefone
+                </div>
+                <div id="tipo">
+                    tipo
+                </div>
+                <div class="sair">
+                    <a class="botaoOut" href="index.html">Sair</a>
+                </div>
             </div>
         </div>
-        <div class="dados">
-            <div class="nome">
-                Pedro Henrique Davidson
-            </div>
-            <div>
-                Numero de passeios: xx
-            </div>
-            <div>
-                Avaliação: ****
-            </div>
-            <br>
-            <a href="index.html">Sair</a>
-
+        <div class="estatisticas">
+            Estatisticas de uso:
         </div>
     </div>
 </body>
 <script src="assets/axios.min.js"></script>
 <script>
-    function barraNavegacao(){
+    function barraNavegacao() {
         let tipo = localStorage.getItem('tipoUsuario')
-        if (tipo == 'passeador'){
+        if (tipo == 'passeador') {
             document.getElementById('barraNav').innerHTML = `<a href="homePasseador.html">
                                                                 <h3>Home</h3>
                                                             </a>`
         }
     }
     barraNavegacao()
+    function getProfileData() {
+        let id = localStorage.getItem('idUsuario')
+        let params = { id }
+        const options = {
+            method: 'GET',
+            url: 'http://localhost:4567/perfil',
+            params,
+        }
+        axios.request(options).then((response) => {
+            let nome = response.data.nome
+            let email = response.data.email
+            let foto = response.data.foto
+            let tipo = response.data.tipo
+            let telefone = response.data.telefone
+            setProfileData(nome, email, foto, tipo, telefone)
+        }).catch(function (error) {
+            console.log(error)
+            alert(error.response.data)
+        })
+    }
+    function setProfileData(nome, email, foto, tipo, telefone) {
+        document.getElementById('nomeCompleto').innerHTML = nome
+        document.getElementById('email').innerHTML = email
+        document.getElementById('telefone').innerHTML = telefone
+        document.getElementById('fotoPerfil').src = foto
+        document.getElementById('tipo').innerHTML = tipo
+    }
+    getProfileData()
 </script>
 
 </html>
