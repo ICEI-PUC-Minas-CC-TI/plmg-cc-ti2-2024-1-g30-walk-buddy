@@ -12,37 +12,51 @@
     <link rel="stylesheet" href="passeios.css">
 </head>
 
-<body>
-    <div class="barraNavegacao">
+<main>
+    <header class="barraNavegacao">
         <div class="options">
-            <a href="home.html">
-                <h3>Home</h3>
-            </a>
-            <a href="pets.html">
-                <h3>Pets</h3>
-            </a>
-            <a href="#">
-                <h3>Passeios</h3>
-            </a>
+            <a href="home.html"> Home </a>
+            <a href="pets.html"> Pets </a>
+            <a href="passeios.html"> Passeios </a>
         </div>
-        <a href="perfil.html">
-            <img src="../assets/perfil.png" alt="avatar" height="60">
-        </a>
 
-    </div>
-    <div class="tela">
+        <a href="perfil.html">
+            <img src="../assets/perfil.png" alt="avatar" height="45">
+        </a>
+    </header>
+
+    <section>
         <div class="titulo">
             <h3>Meus passeios:</h3>
-            <a href="solicitarPasseio.html">
-                <div class="botaoAdd">
-                    <h3>+ Agendar</h3>
-                </div>
-            </a>
+            <a href="solicitarPasseio.html"> <div class="botaoAdd"> + Agendar </div> </a>
         </div>
-        <div class="lista" id="listaPasseios">
-        </div>
-    </div>
-</body>
+
+        <article class="lista" id="listaPasseios">
+
+            <div class="itemLista itemPassado">
+                <p>
+                    Passeio do ${passeio.nomePet} com ${passeio.nomePasseador}
+                    Dia ${passeio.data} as ${passeio.hora}
+                </p>
+            </div>
+
+            <div class="itemLista itemPassado">
+                <p>
+                    Passeio do ${passeio.nomePet} com ${passeio.nomePasseador}
+                    Dia ${passeio.data} as ${passeio.hora}
+                </p>
+            </div>
+
+            <div class="itemLista itemPassado">
+                <p>
+                    Passeio do ${passeio.nomePet} com ${passeio.nomePasseador}
+                    Dia ${passeio.data} as ${passeio.hora}
+                </p>
+            </div>
+        </article>
+    </section>
+</main>
+
 <script src="../assets/axios.min.js"></script>
 <script>
     function listar(){

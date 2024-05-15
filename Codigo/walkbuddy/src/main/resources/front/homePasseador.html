@@ -12,25 +12,50 @@
     <link rel="stylesheet" href="homePasseador.css">
 </head>
 
-<body>
-    <div class="barraNavegacao">
+<main>
+    <header class="barraNavegacao">
         <div class="options">
-            <a href="#">
-                <h3>Home</h3>
-            </a>
+            <a href="home.html"> Home </a>
+
         </div>
+
         <a href="perfil.html">
-            <img src="../assets/perfil.png" alt="avatar" height="60">
+            <img src="../assets/perfil.png" alt="avatar" height="45">
         </a>
-    </div>
-    <div class="tela">
-        <div class="informacoes">
-            <h3>Passseios:</h3><br>
+    </header>
+
+    <section>
+        <article class="informacoes">
+
             <div class="lista" id="listaPasseios">
+                <div class="itemLista">
+                    <div>
+                        <h3>Passeio do ${passeio.nomePet} com ${passeio.nomePasseador}</h3>
+                        <h4>Dia ${passeio.data} as ${passeio.hora}</h4>
+                    </div>
+                    ${gerarBotao(passeio.id, passeio.estado)}
+                </div>
+
+                <div class="itemLista">
+                    <div>
+                        <h3>Passeio do ${passeio.nomePet} com ${passeio.nomePasseador}</h3>
+                        <h4>Dia ${passeio.data} as ${passeio.hora}</h4>
+                    </div>
+                    ${gerarBotao(passeio.id, passeio.estado)}
+                </div>
+
+                <div class="itemLista">
+                    <div>
+                        <h3>Passeio do ${passeio.nomePet} com ${passeio.nomePasseador}</h3>
+                        <h4>Dia ${passeio.data} as ${passeio.hora}</h4>
+                    </div>
+                    ${gerarBotao(passeio.id, passeio.estado)}
+                </div>
             </div>
-        </div>
-    </div>
-</body>
+        </article>
+    </section>
+</main>
+
 <script src="../assets/axios.min.js"></script>
 <script>
     function listar() {

@@ -12,62 +12,58 @@
     <link rel="stylesheet" href="perfil.css">
 </head>
 
-<body>
-    <div class="barraNavegacao">
-        <div class="options" id="barraNav">
-            <a href="home.html">
-                <h3>Home</h3>
-            </a>
-            <a href="pets.html">
-                <h3>Pets</h3>
-            </a>
-            <a href="passeios.html">
-                <h3>Passeios</h3>
-            </a>
+<main>
+    <header class="barraNavegacao">
+        <div class="options" id="options">
+            <a href="home.html"> Home </a>
         </div>
+
         <a href="perfil.html">
-            <img src="../assets/perfil.png" alt="avatar" height="60">
+            <img src="../assets/perfil.png" alt="avatar" height="45">
         </a>
-    </div>
-    <div class="tela">
-        <div class="informacoes">
+    </header>
+
+    <section class="flex-container">
+        <article>
             <div class="foto">
-                <img alt="foto perfil" id="fotoPerfil" width="300">
+                <img src="../assets/joao.png" alt="foto perfil" id="fotoPerfil" width="300">
             </div>
-            <div class="dados">
-                <div id="nomeCompleto">
-                    nome
-                </div>
-                <div id="email">
-                    email
-                </div>
-                <div id="telefone">
-                    telefone
-                </div>
-                <div id="tipo">
-                    tipo
-                </div>
-                <div class="sair">
-                    <a class="botaoOut" href="index.html">Sair</a>
-                </div>
+        </article>
+
+        <article>
+            <div class="grid-container">
+
+                <h2> Minhas Informações </h2>
+
+                <h4 id="nomeCompleto"> Nome : Joao Paulo </h4>
+                <h4 id="email"> Email : Joaopaulo260504@passeador.com </h4>
+                <h4 id="telefone"> Telefone : 4002-8922</h4>
+                <h4 id="tipo"> Tipo : passeador </h4>
+
+                <button class="botaoOut" href="index.html"> Sair </button>
             </div>
-        </div>
-        <div class="estatisticas">
-            Estatisticas de uso:
-        </div>
-    </div>
-</body>
+        </article>
+    </section>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="estatisticas"> Estatisticas de uso: </div>
+</main>
+
 <script src="../assets/axios.min.js"></script>
 <script>
     function barraNavegacao() {
         let tipo = localStorage.getItem('tipoUsuario')
         if (tipo == 'passeador') {
-            document.getElementById('barraNav').innerHTML = `<a href="homePasseador.html">
-                                                                <h3>Home</h3>
-                                                            </a>`
+            document.getElementById('options').innerHTML = `<a href="homePasseador.html"> Passeios </a>`
         }
     }
+
     barraNavegacao()
+    
     function getProfileData() {
         let id = localStorage.getItem('idUsuario')
         let params = { id }
@@ -88,13 +84,15 @@
             alert(error.response.data)
         })
     }
+    
     function setProfileData(nome, email, foto, tipo, telefone) {
-        document.getElementById('nomeCompleto').innerHTML = nome
-        document.getElementById('email').innerHTML = email
-        document.getElementById('telefone').innerHTML = telefone
+        document.getElementById('nomeCompleto').innerHTML = `Nome : ${nome}`
+        document.getElementById('email').innerHTML = `Email : ${email}`
+        document.getElementById('telefone').innerHTML = `Telefone : ${telefone}`
         document.getElementById('fotoPerfil').src = '../assets/' + foto
-        document.getElementById('tipo').innerHTML = tipo
+        document.getElementById('tipo').innerHTML = `Tipo : ${tipo}`
     }
+    
     getProfileData()
 </script>
 

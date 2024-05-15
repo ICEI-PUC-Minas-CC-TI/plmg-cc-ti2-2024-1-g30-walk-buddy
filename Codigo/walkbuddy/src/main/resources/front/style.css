@@ -16,21 +16,32 @@
     font-family: "Poppins", sans-serif;
     color: var(--cinza);
 }
+
 a{
     text-decoration: none;
 }
+
 input{
     border-radius: 7px;
     border: 0;
     padding: 5px;
 }
+
+select{
+    border-radius: 7px;
+    border: 0;
+    padding: 5px;
+    width: 308px;
+}
+
 body{
     background-color: var(--areia);
 }
+
 .barraNavegacao{
     height: 7vh;
     line-height: 7vh;
-    background-color: var(--laranja);
+    background-color: var(--laranjaClaro);
     display: flex;
     justify-content: space-between;
     padding-right: 1%;

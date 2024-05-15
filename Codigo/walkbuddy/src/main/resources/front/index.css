@@ -2,6 +2,10 @@ h1 {
     text-align: center;
 }
 
+h2{
+    font-size: 22pt;
+}
+
 .cardPrincipal {
     background-color: var(--laranjaClaro);
     margin: auto;
@@ -24,6 +28,7 @@ h1 {
 .dadosLogin {
     display: block;
     margin-top: 10%;
+    margin-bottom: 60px;
     height: 50%;
 }
 
@@ -55,7 +60,7 @@ button{
     border:0;
     border-radius: 8px;
     box-shadow: 2px 2px 5px 1px var(--cinzaClaro);
-    background-color: var(--azul);
+    background-color: var(--verde);
 }
 
 button:active {

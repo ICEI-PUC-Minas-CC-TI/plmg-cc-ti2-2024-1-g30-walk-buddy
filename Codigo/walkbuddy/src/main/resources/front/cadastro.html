@@ -12,52 +12,68 @@
     <link rel="stylesheet" href="cadastro.css">
 </head>
 
-<body>
-    <div class="tela">
-        <div class="cadastro">
-            <div class="voltar">
-                <a href="index.html" >
-                    &lt Voltar
-                </a>
+<main>
+    
+    <header class="barraNavegacao">
+        <a href="index.html"> Home </a>
+    </header>
+
+           
+    <section class="cadastro">
+
+        <article class="container">
+
+            <h2> Seja bem vindo ! </h2>
+
+            <div>
+                <label for="nome"> Nome </label>
+                <input type="text" id="nome">
             </div>
-            <h1>Seja bem vindo!</h1>
-            <div class="dadosinterno">
-                <label for="nome"><b>Nome</b></label><br>
-                <input type="text" id="nome"><br><br>
 
-                <label for="usuario"><b>Usuário</b></label><br>
-                <input type="text" id="usuario"><br><br>
-
-                <label for="senha"><b>Senha</b></label><br>
-                <input type="password" id="senha"><br><br>
-
-                <label for="cpf"><b>CPF</b></label><br>
-                <input type="text" id="cpf"><br><br>
-
-                <!-- <label for="foto"><b>Foto</b></label><br>
-                    <input type="text" name="foto" id="foto"><br><br> -->
-
-                <label for="telefone"><b>Telefone</b></label><br>
-                <input type="text" name="telefone" id="telefone"><br><br>
-
-                <form action="" name="formtipo">
-                    <p>Selecione o tipo de conta:</p>
-                    <input type="radio" id="tipoDono" name="tipo" value="dono">
-                    <label for="tipoDono">Dono de Pet</label><br>
-                    <input type="radio" id="tipoPasseador" name="tipo" value="passeador">
-                    <label for="tipoPasseador">Passeador</label><br><br>
-                </form>
-
-                <button onclick="cadastrar()">
-                    <h3>Cadastrar</h3>
-                </button>
+            <div>
+                <label for="usuario"> Usuário  </label>
+                <input type="text" id="usuario">
             </div>
-        </div>
-    </div>
-</body>
+
+            <div>
+                <label for="senha"> Senha </label>
+                <input type="password" id="senha">
+            </div>
+
+            <div>
+                <label for="cpf"> CPF </label>
+                <input type="text" id="cpf">
+            </div>
+
+            <div>
+                <label for="telefone"> Telefone </label>
+                <input type="text" name="telefone" id="telefone">
+            </div>
+
+            <!-- <label for="foto">Foto </label><br>
+                <input type="text" name="foto" id="foto"><br><br>
+            -->
+
+            <form class="formtipo">
+                <p> Selecione o tipo de conta: </p>
+                
+                <select name="tipo">
+                    <option value="dono"> Dono de pet </option>
+                    <option value="passeador"> Passeador </option>
+                </select>
+
+            </form>
+
+            <button onclick="cadastrar()" class="item-container"> <h4> Cadastrar </h4> </button>
+            
+        </article>
+</main>
+
 <script src="../assets/axios.min.js"></script>
+
 <script>
     function cadastrar() {
+
         let nome = document.getElementById('nome').value;
         let email = document.getElementById('usuario').value;
         let senha = document.getElementById('senha').value;
@@ -72,11 +88,13 @@
             telefone1,
             tipo
         }
+
         const options = {
             method: 'POST',
             url: 'http://localhost:4567/usuario',
             params: usuario,
         };
+
         axios.request(options).then((response) =>{
             alert(response.data);
             window.location.href = 'index.html';
@@ -84,6 +102,7 @@
             alert('Erro ao inserir');
         });
     }
+    
 </script>
 
 </html>

@@ -1,32 +1,32 @@
-.options {
-    width: 20%;
+.flex-container{
     display: flex;
-    justify-content: space-between;
+    margin: 20px;
+    justify-content: space-around;
 }
 
-.tela {
-    background-color: var(--laranjaClaro);
-    margin: auto;
-    max-width: 70%;
-    height: 93vh;
-    box-shadow: 0px 4px 7px 1px var(--cinzaClaro);
-}
-
-.informacoes {
+.grid-container{
     display: grid;
-    grid-template-columns: 2fr 3fr;
+    position: relative;
+    top: 30px;
+    grid-template-columns: 200px 500px;
+    background-color: var(--laranjaClaro);
+    padding: 20px;
+    border-radius: 10px;
 }
 
-.foto {
-    padding-top: 2%;
+.grid-container h4{
+    margin: 10px;
+}
+
+.grid-container h2{
+    grid-column: span 2;
+    text-align: center;
+    font-size: 30pt;
+    margin-bottom: 20px;
 }
 
 #fotoPerfil {
-    border-radius: 250px;
-}
-
-.dados {
-    padding-top: 10%;
+    border-radius: 120px;
 }
 
 .sair {
@@ -39,6 +39,8 @@
     padding: 8px 40px;
     border-radius: 8px;
     box-shadow: 2px 2px 7px 1px var(--cinzaClaro);
+    grid-column: span 2;
+    margin-top: 30px;
 }
 
 .botaoOut:active {

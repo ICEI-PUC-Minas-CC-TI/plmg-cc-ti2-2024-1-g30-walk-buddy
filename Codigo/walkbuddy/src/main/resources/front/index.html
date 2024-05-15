@@ -13,39 +13,42 @@
 </head>
 
 <body>
-    <div class="cardPrincipal">
-        <div class="dados">
-            <div class="dadosLogin">
-                <h2>Bem vindo!</h2>
-                <div class="label">
-                    Usuario:
-                </div>
-                <input type="text" id="nomeDeUsuario">
-                <div class="label">
-                    Senha:
-                </div>
-                <input type="password" id="senha">
 
-                <div>
-                    <button onclick="login()" class="">
-                        Entrar
-                    </button>
+    <header class="barraNavegacao">
+        <a href="index.html"> <h3> Home </h3> </a>
+    </header>
+
+    <main>
+        <section class="cardPrincipal">
+
+            <article class="dados">
+                
+                <div class="dadosLogin">
+                    <h2>Faça seu login!</h2>
+
+                    <h4 class="label"> Usuario: </h4>
+                    <input type="text" id="nomeDeUsuario">
+
+                    <h4 class="label"> Senha: </h4>
+                    <input type="password" id="senha">
+    
+                    <div> <button onclick="login()" class=""> Entrar </button> </div>
                 </div>
-            </div>
-            <div class="dadosCadastro">
-                <h2>Novo aqui?</h2>
-                <a href="cadastro.html">
-                    <button>
-                        Registre-se!
-                    </button>
-                </a>
-            </div>
-        </div>
-        <div class="linhaVertical"></div>
-        <div class="foto">
-            <img src="../assets/dog.png" alt="">
-        </div>
-    </div>
+    
+                <div class="dadosCadastro">
+                    <h2> Novo aqui? </h2>
+                    <a href="cadastro.html"> <button> Registre-se! </button> </a>
+                </div>
+
+            </article>
+
+            <div class="linhaVertical"></div>
+    
+            <div class="foto"> <img src="../assets/dog.png" alt="Foto cachorro"> </div>
+
+        </section>
+    </main>
+
 </body>
 <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
 <script src="../assets/axios.min.js"></script>

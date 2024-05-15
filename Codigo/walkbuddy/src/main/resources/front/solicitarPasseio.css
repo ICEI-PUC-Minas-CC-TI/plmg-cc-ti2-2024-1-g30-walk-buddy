@@ -4,6 +4,13 @@
     text-align: center;
 }
 
+h2{
+    grid-column: span 2;
+    text-align: center;
+    font-size: 30pt;
+    margin-bottom: 20px;
+}
+
 input, select {
     border-radius: 7px;
     border: 0;
@@ -11,11 +18,31 @@ input, select {
     background-color: var(--cinzaClaro2);
 }
 
-.tela {
+article{
     background-color: var(--laranjaClaro);
-    margin: auto;
-    max-width: 70%;
+    padding: 30px;
+    border-radius: 50px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cadastro{
+    width: 100vw;
     height: 93vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 300px 300px;
+    grid-column-gap: 40px;
+    grid-row-gap: 30px;
+    justify-content: center;
+    background-color: var(--laranjaClaro);
 }
 
 .dados {
@@ -31,24 +58,10 @@ input, select {
     justify-content: space-between;
 }
 
-.lista {
-    display: block;
-    margin: auto;
-    padding-top: 2%;
-}
-
 .itemLista {
     border-radius: 10px;
     margin: auto;
     margin-bottom: 20px;
-}
-
-.titulo {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 2%;
-    padding-left: 2%;
-    padding-right: 5%;
 }
 
 .botaoSave:active {
@@ -56,11 +69,11 @@ input, select {
 }
 
 .botaoSave {
-    background-color: var(--azul);
+    grid-column: span 2;
+    background-color: var(--verde);
     padding: 7px;
     border-radius: 8px;
-    box-shadow: 2px 2px 7px 1px var(--cinzaClaro);
-    width: 30%;
     border: 0;
-    margin: auto;
+    box-shadow: 2px 2px 7px 1px var(--cinzaClaro);
+    font-size: 13pt;
 }
