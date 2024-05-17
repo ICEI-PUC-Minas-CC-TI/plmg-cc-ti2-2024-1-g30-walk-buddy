@@ -37,8 +37,8 @@
             </div>
 
             <div>
-                <label for="idade"> Idade </label>
-                <input type="number" name="idade" id="idade">
+                <label for="dataNascimento"> Data de nascimento </label>
+                <input type="date" name="dataNascimento" id="dataNascimento">
             </div>
 
             <div>
@@ -66,13 +66,13 @@
 <script>
     function getDadosPet() {
         let nome = document.getElementById('nome').value
-        let idade = document.getElementById('idade').value
+        let dataNascimento = document.getElementById('dataNascimento').value
         let raca = document.getElementById('raca').value
         let perfilComportamental = document.getElementById('perfilComportamental').value
         let idDono = localStorage.getItem('idUsuario')
         let pet = {
             nome,
-            idade,
+            dataNascimento,
             raca,
             perfilComportamental,
             idDono

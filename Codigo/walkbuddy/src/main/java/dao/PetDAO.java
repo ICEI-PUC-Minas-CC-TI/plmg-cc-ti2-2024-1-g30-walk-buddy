@@ -10,8 +10,8 @@ public class PetDAO {
 		try {
 			Connection conexao = DAO.conectar();
 			Statement st = conexao.createStatement();
-			String sql = "INSERT INTO pet (nome, idade, raca, perfilcomportamental, foto, id_dono) "
-		               + "VALUES ('" + pet.nome + "', " + pet.idade + ", '" + pet.raca
+			String sql = "INSERT INTO pet (nome, dataNascimento, raca, perfilcomportamental, foto, id_dono) "
+		               + "VALUES ('" + pet.nome + "', '" + pet.dataNascimento + "', '" + pet.raca
 		               + "', '" + pet.perfilComportamental + "', '" + pet.foto + "', " + pet.idDono + ");";
 			st.executeUpdate(sql);
 			st.close();
@@ -34,7 +34,7 @@ public class PetDAO {
 	        	Pet pet = new Pet();
 	        	pet.id = rs.getInt("id");
 	        	pet.nome = rs.getString("nome");
-	        	pet.idade = rs.getInt("idade");
+	        	pet.dataNascimento = rs.getString("dataNascimento");
 	        	pet.raca = rs.getString("raca");
 	        	pet.perfilComportamental = rs.getString("perfilcomportamental");
 	        	pet.foto = rs.getString("foto");

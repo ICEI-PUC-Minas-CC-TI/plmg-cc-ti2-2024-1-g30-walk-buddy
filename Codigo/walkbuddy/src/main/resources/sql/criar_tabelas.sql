@@ -31,7 +31,7 @@ CREATE TABLE passeio (
 CREATE TABLE pet (
   id SERIAL PRIMARY KEY,
   nome VARCHAR(70) NOT NULL,
-  idade INT NOT NULL,
+  dataNascimento VARCHAR(30) NOT NULL,
   raca VARCHAR(30) NOT NULL,
   perfilcomportamental VARCHAR(255),
   foto TEXT,

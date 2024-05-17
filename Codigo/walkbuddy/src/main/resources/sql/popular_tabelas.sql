@@ -7,9 +7,8 @@ VALUES
 ('Passeador02', '123456', 'Jorge Veríssimo', '11122233344', 'jorge.png', 'passeador', '31998989797'),
 ('Passeador03', '123456', 'Lygia Abreu', '11122233344', 'lygia.png', 'passeador', '31998989797');
 
-INSERT INTO pet (nome, idade, raca, perfilcomportamental, foto, id_dono)
+INSERT INTO pet (nome, dataNascimento, raca, perfilcomportamental, foto, id_dono)
 VALUES 
-('Toto', 3, 'Pastor', 'Ativo', 'toto.png', 1),
-('Tete', 4, 'Pastor', 'Ativo', 'tete.png', 1),
-('Agata', 1, 'Siames', 'Timido', 'agata.png', 2),
-('Mimi', 3, 'Angorá', 'Arisco', 'mimi.png', 3);
+('Toto', '03/04/2020', 'Pastor', 'Ativo', 'toto.png', 1),
+('Agata', '08/01/2022', 'Siames', 'Timido', 'agata.png', 1),
+('Mimi', '17/09/2018', 'Angorá', 'Arisco', 'mimi.png', 1);

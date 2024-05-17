@@ -3,7 +3,7 @@ package model;
 public class Pet {
 	public int id;
 	public String nome;
-	public int idade;
+	public String dataNascimento;
 	public String raca;
 	public String perfilComportamental;
 	public String foto;
@@ -13,7 +13,7 @@ public class Pet {
 		String json = "{";
 		json += "\"id\": " + this.id + ",";
 		json += "\"nome\": \"" + this.nome + "\",";
-		json += "\"idade\": " + this.idade + ",";
+		json += "\"dataNascimento\": \"" + this.dataNascimento + "\",";
 		json += "\"raca\": \"" + this.raca + "\",";
 		json += "\"perfilComportamental\": \"" + this.perfilComportamental + "\",";
 		json += "\"foto\": \"" + this.foto + "\",";

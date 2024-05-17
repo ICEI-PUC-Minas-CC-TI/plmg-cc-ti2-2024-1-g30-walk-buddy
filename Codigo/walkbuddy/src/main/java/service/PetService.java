@@ -13,7 +13,7 @@ public class PetService {
 		response.status(400);
 		Pet pet = new Pet();
 		pet.nome = request.queryParams("nome");
-		pet.idade = Integer.parseInt(request.queryParams("idade"));
+		pet.dataNascimento = request.queryParams("dataNascimento");
 		pet.raca = request.queryParams("raca");
 		pet.perfilComportamental = request.queryParams("perfilComportamental");
 		pet.idDono = Integer.parseInt(request.queryParams("idDono"));
