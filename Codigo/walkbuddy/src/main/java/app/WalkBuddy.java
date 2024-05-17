@@ -9,7 +9,7 @@ public class WalkBuddy {
 
 		after((Filter) (request, response) -> {
             response.header("Access-Control-Allow-Origin", "*");
-            response.header("Access-Control-Allow-Methods", "GET");
+            response.header("Access-Control-Allow-Methods", "*");
         });
 		get("hello",(request, response)->"Hello!");
 

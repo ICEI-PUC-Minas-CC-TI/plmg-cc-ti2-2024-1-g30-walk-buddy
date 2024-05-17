@@ -51,7 +51,12 @@
                 <input type="text" name="perfilComportamental" id="perfilComportamental">
             </div>
 
-            <button onclick="inserir()" class="botaoAdd"> Salvar </button>
+            <div>
+                <label for="foto"> Foto </label>
+                <input type="file" id="foto">
+            </div>
+
+            <button onclick="getDadosPet()" class="botaoAdd"> Salvar </button>
         </article>
     </section>
 </main>
@@ -59,33 +64,49 @@
 <script src="../assets/axios.min.js"></script>
 
 <script>
-    function inserir() {
-        let nome = document.getElementById('nome').value;
-        let idade = document.getElementById('idade').value;
-        let raca = document.getElementById('raca').value;
-        let perfilComportamental = document.getElementById('perfilComportamental').value;
-        let foto = undefined;
-        let idDono = 1;
+    function getDadosPet() {
+        let nome = document.getElementById('nome').value
+        let idade = document.getElementById('idade').value
+        let raca = document.getElementById('raca').value
+        let perfilComportamental = document.getElementById('perfilComportamental').value
+        let idDono = localStorage.getItem('idUsuario')
         let pet = {
             nome,
             idade,
             raca,
             perfilComportamental,
-            foto,
             idDono
         }
+
+        let foto64 = null
+        // let file = document.getElementById('foto').files[0]
+        // let reader = new FileReader()
+        // reader.readAsDataURL(file)
+        // reader.onload = function (){
+        //     let foto64 = reader.result
+        //     console.log(foto64.length)
+        //     postPet(pet, foto64)
+        // }
+        postPet(pet, foto64)
+    }
+    function postPet(pet, foto64){
         const options = {
             method: 'POST',
             url: 'http://localhost:4567/pet',
             params: pet,
-        };
-        console.log(pet);
-        axios.request(options).then((response) =>{
-            alert(response.data);
-            window.location.href = 'pets.html';
-        }).catch(function (error) {
-            console.log(error);
-        });
+            //data: { foto64 }
+        }
+        axios.request(options).then(
+            function (response) {
+                alert(response.data)
+                window.location.href = 'pets.html'
+            }
+        )
+        .catch(
+            function (error) {
+                console.log(error)
+            }
+        )
     }
 </script>
 

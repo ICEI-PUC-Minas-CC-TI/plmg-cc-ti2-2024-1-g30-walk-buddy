@@ -34,7 +34,7 @@ CREATE TABLE pet (
   idade INT NOT NULL,
   raca VARCHAR(30) NOT NULL,
   perfilcomportamental VARCHAR(255),
-  foto VARCHAR(255),
+  foto TEXT,
   id_dono INT NOT NULL,
   CONSTRAINT fk_dono
     FOREIGN KEY (id_dono)

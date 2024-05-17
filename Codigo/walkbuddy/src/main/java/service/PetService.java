@@ -16,8 +16,8 @@ public class PetService {
 		pet.idade = Integer.parseInt(request.queryParams("idade"));
 		pet.raca = request.queryParams("raca");
 		pet.perfilComportamental = request.queryParams("perfilComportamental");
-		pet.foto = request.queryParams("foto");
 		pet.idDono = Integer.parseInt(request.queryParams("idDono"));
+		//pet.foto = request.queryParams("foto");
 		sucesso = PetDAO.inserir(pet);
 		if(sucesso) {
 			resultado = "Pet " + pet.nome + " adicionado";
