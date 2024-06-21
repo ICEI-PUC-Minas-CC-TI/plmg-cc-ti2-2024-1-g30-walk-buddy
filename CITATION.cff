@@ -1,31 +1,28 @@
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
-title: 
+title: walk-buddy
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names:
+  - family-names: Paulo Vaz de Melo Gonçalves
+    given-names: João
+  - family-names: Lima Pitanga
+    given-names: Arnobio
+  - family-names: Henrique Honorato
+    given-names: Pedro
+  - family-names: Assis Michalaros
+    given-names: Felipe
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Cardoso Brandao
+    given-names: Wladmir
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Paulo Soares Gomes
+    given-names: Marco
 keywords:
-  - 
-  - 
-repository-code: 
+  - Agendamento
+  - Facilitador
+  - Animais
+repository-code: https://github.com/ICEI-PUC-Minas-CC-TI/plmg-cc-ti2-2024-1-walk-buddy
 license: CC-BY-4.0
 version: 1.0.0
-date-released: 2022-07-14
+date-released: 2024-06-21
