@@ -24,21 +24,16 @@
     </header>
 
     <section class="flex-container">
-        <article>
-            <div class="foto">
-                <img src="../assets/joao.png" alt="foto perfil" id="fotoPerfil" width="300">
-            </div>
-        </article>
 
         <article>
             <div class="grid-container">
 
                 <h2> Minhas Informações </h2>
 
-                <h4 id="nomeCompleto"> Nome : Joao Paulo </h4>
-                <h4 id="email"> Email : Joaopaulo260504@passeador.com </h4>
-                <h4 id="telefone"> Telefone : 4002-8922</h4>
-                <h4 id="tipo"> Tipo : passeador </h4>
+                <h4 id="nomeCompleto">  </h4>
+                <h4 id="email">  </h4>
+                <h4 id="telefone"> </h4>
+                <h4 id="tipo">  </h4>
 
                 <a class="botaoOut" href="index.html"> Sair </a>
             </div>
@@ -50,7 +45,6 @@
     <br>
     <br>
 
-    <div class="estatisticas"> Estatisticas de uso: </div>
 </main>
 
 <script src="../assets/axios.min.js"></script>
@@ -78,6 +72,7 @@
             let foto = response.data.foto
             let tipo = response.data.tipo
             let telefone = response.data.telefone
+			console.log(response.data)
             setProfileData(nome, email, foto, tipo, telefone)
         }).catch(function (error) {
             console.log(error)
@@ -89,7 +84,6 @@
         document.getElementById('nomeCompleto').innerHTML = `Nome : ${nome}`
         document.getElementById('email').innerHTML = `Email : ${email}`
         document.getElementById('telefone').innerHTML = `Telefone : ${telefone}`
-        document.getElementById('fotoPerfil').src = '../assets/' + foto
         document.getElementById('tipo').innerHTML = `Tipo : ${tipo}`
     }
     
