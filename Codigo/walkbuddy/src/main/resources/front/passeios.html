@@ -32,27 +32,7 @@
         </div>
 
         <article class="lista" id="listaPasseios">
-
-            <div class="itemLista itemPassado">
-                <p>
-                    Passeio do ${passeio.nomePet} com ${passeio.nomePasseador}
-                    Dia ${passeio.data} as ${passeio.hora}
-                </p>
-            </div>
-
-            <div class="itemLista itemPassado">
-                <p>
-                    Passeio do ${passeio.nomePet} com ${passeio.nomePasseador}
-                    Dia ${passeio.data} as ${passeio.hora}
-                </p>
-            </div>
-
-            <div class="itemLista itemPassado">
-                <p>
-                    Passeio do ${passeio.nomePet} com ${passeio.nomePasseador}
-                    Dia ${passeio.data} as ${passeio.hora}
-                </p>
-            </div>
+			
         </article>
     </section>
 </main>
@@ -63,7 +43,11 @@
         const options = {
             method: 'GET',
             url: 'http://localhost:4567/passeio',
+			params: {
+				id_dono: localStorage.getItem('idUsuario')
+			}
         }
+		console.log(options.params.id_dono)
         axios.request(options).then((response) =>{
             let passeios = response.data
             const lista = document.getElementById('listaPasseios')
