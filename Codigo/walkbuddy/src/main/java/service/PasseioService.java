@@ -27,7 +27,16 @@ public class PasseioService {
 	
 	public static String listar(Request request, Response response) {
 		String resultado = "erro";
-		resultado = PasseioDAO.listar();
+		int idDono = Integer.parseInt(request.queryParams("id_dono"));
+		resultado = PasseioDAO.listar(idDono);
+        response.status(200);
+		return resultado;
+	}
+	
+	public static String listarPasseador(Request request, Response response) {
+		String resultado = "erro";
+		int idPasseador = Integer.parseInt(request.queryParams("id_passeador"));
+		resultado = PasseioDAO.listarPasseador(idPasseador);
         response.status(200);
 		return resultado;
 	}
