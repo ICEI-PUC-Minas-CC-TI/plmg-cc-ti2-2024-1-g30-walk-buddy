@@ -22,12 +22,12 @@ public class PetDAO {
 		return status;
 	}
 	
-	public static String listar() {
+	public static String listar(int id) {
 		String lista = "erro";
 		try {
 			Connection conexao = DAO.conectar();
 			Statement st = conexao.createStatement();
-			String sql = "SELECT * FROM pet;";
+			String sql = "SELECT * FROM pet WHERE id_dono = " + id + ";";
 			ResultSet rs = st.executeQuery(sql);
 			lista = "[";
 			while(rs.next()) {	            	
