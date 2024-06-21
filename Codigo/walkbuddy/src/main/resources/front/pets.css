@@ -50,3 +50,54 @@ input{
     transform: translateY(2px);
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+input{
+    width: 300px;
+}
+
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.flex-container div{
+    width: 20%;
+    margin: 20px;
+    background-color: var(--laranjaClaro);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.titulo {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 5%;
+}
+
+.options {
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.botaoAdd {
+    grid-column: span 2;
+    background-color: var(--verde);
+    padding: 7px;
+    border-radius: 8px;
+    border: 0;
+    box-shadow: 2px 2px 7px 1px var(--cinzaClaro);
+    font-size: 13pt;
+}
+
+.botaoAdd:active {
+    transform: translateY(2px);
+}
