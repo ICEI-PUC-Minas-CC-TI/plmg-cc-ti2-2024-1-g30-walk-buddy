@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class DAO {
 	public static Connection conectar (){
-		String url = "jdbc:postgresql://localhost:5432/banco";
-		String username = "felipe";
-		String password = "senha";
+		String url = "jdbc:postgresql://trabalhotiback.postgres.database.azure.com/postgres";
+		String username = "trabalhoti2";
+		String password = "Joaoepobe26@";
 		Connection conexao = null;
 		try {
 			conexao = DriverManager.getConnection(url, username, password);
