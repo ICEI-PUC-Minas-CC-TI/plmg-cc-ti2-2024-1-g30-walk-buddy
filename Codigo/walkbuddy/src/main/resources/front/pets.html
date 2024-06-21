@@ -37,13 +37,6 @@
 
         <article class="flex-container" id="listaPets"> 
 
-            <div>
-                <p> Nome : ${pet.nome} </p> 
-                <p> idade : ${pet.idade} </p>
-                <p> Especie/Raça : ${pet.raca} </p>
-                <p> perfilComportamental: ${pet.perfilcomportamental} </p>
-            </div>
-            
         </article>
 
     </section>
@@ -56,7 +49,11 @@
         const options = {
             method: 'GET',
             url: 'http://localhost:4567/pet',
+			params: {
+				id_dono: localStorage.getItem('idUsuario')
+			}
         }
+		console.log(options.params.id_dono)
         axios.request(options).then((response) => {
             console.log(response.data)
             let pets = response.data
